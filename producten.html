@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Producten — Schaap's Vis</title>
+<meta name="description" content="Bekijk en bestel verse vis, garnalen en meer bij Schaap's Vis.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="top-balk">
+  <div class="container">
+    <span>📞 Liever bellen? Wij helpen u graag: <a href="tel:+31000000000">0000 - 000 000</a></span>
+  </div>
+</div>
+
+<header class="hoofd">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="logo-icoon">🐟</span> Schaap's Vis</a>
+    <nav class="hoofdmenu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="producten.html" class="actief">Producten</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="winkelwagen.html" class="winkelwagen-link">🛒 Winkelwagen <span id="cart-badge">0</span></a></li>
+      </ul>
+    </nav>
+    <div class="tekstgrootte-knoppen" aria-label="Tekstgrootte aanpassen">
+      <span>Tekst:</span>
+      <button data-grootte="normaal" aria-label="Normale tekstgrootte">A</button>
+      <button data-grootte="groot" aria-label="Grote tekstgrootte">A+</button>
+      <button data-grootte="extra-groot" aria-label="Extra grote tekstgrootte">A++</button>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="producten-intro">
+      <h2>Onze producten</h2>
+      <p>Kies wat u wilt bestellen en pas het aantal aan. U kunt daarna alles samen bestellen bij "Winkelwagen".</p>
+    </div>
+    <div class="producten-grid" id="producten-grid"></div>
+  </div>
+</section>
+
+<footer class="hoofd-footer">
+  <div class="container footer-grid">
+    <div>
+      <h4>Schaap's Vis</h4>
+      <p>Uw vertrouwde viszaak, nu ook gratis aan huis bezorgd.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>📞 <a href="tel:+31000000000">0000 - 000 000</a></p>
+      <p>✉️ <a href="mailto:bestellingen@schaapsvis.nl">bestellingen@schaapsvis.nl</a></p>
+    </div>
+    <div>
+      <h4>Openingstijden</h4>
+      <p>Dinsdag t/m zaterdag<br>09:00 – 17:00</p>
+    </div>
+  </div>
+  <p class="copyright">&copy; 2026 Schaap's Vis. Alle prijzen zijn onder voorbehoud.</p>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/site.js"></script>
+<script>
+  function bouwProductKaart(product) {
+    const kaart = document.createElement("div");
+    kaart.className = "product-kaart";
+    kaart.innerHTML = `
+      <div class="product-plaatje">${product.emoji}</div>
+      <h3>${product.naam}</h3>
+      <div class="product-eenheid">${product.eenheid}</div>
+      <div class="product-prijs">${formatPrijs(product.prijs)}</div>
+      <div class="product-acties">
+        <div class="aantal-kiezer">
+          <button type="button" class="min-knop" aria-label="Minder">−</button>
+          <input type="number" class="aantal-invoer" value="1" min="1" max="20" aria-label="Aantal">
+          <button type="button" class="plus-knop" aria-label="Meer">+</button>
+        </div>
+        <button type="button" class="knop knop-primair toevoegen-knop">Toevoegen</button>
+      </div>
+      <div class="toegevoegd-melding" role="status"></div>
+    `;
+
+    const invoer = kaart.querySelector(".aantal-invoer");
+    kaart.querySelector(".min-knop").addEventListener("click", () => {
+      invoer.value = Math.max(1, parseInt(invoer.value || "1", 10) - 1);
+    });
+    kaart.querySelector(".plus-knop").addEventListener("click", () => {
+      invoer.value = Math.min(20, parseInt(invoer.value || "1", 10) + 1);
+    });
+    kaart.querySelector(".toevoegen-knop").addEventListener("click", () => {
+      const aantal = Math.max(1, parseInt(invoer.value || "1", 10));
+      voegToeAanWinkelwagen(product.id, aantal);
+      const melding = kaart.querySelector(".toegevoegd-melding");
+      melding.textContent = `${aantal} × toegevoegd aan winkelwagen`;
+      setTimeout(() => { melding.textContent = ""; }, 2500);
+    });
+
+    return kaart;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const grid = document.getElementById("producten-grid");
+    PRODUCTEN.forEach((product) => grid.appendChild(bouwProductKaart(product)));
+  });
+</script>
+</body>
+</html>

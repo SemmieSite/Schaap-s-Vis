@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bestellen — Schaap's Vis</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="top-balk">
+  <div class="container">
+    <span>📞 Liever bellen? Wij helpen u graag: <a href="tel:+31000000000">0000 - 000 000</a></span>
+  </div>
+</div>
+
+<header class="hoofd">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="logo-icoon">🐟</span> Schaap's Vis</a>
+    <nav class="hoofdmenu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="producten.html">Producten</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="winkelwagen.html" class="winkelwagen-link">🛒 Winkelwagen <span id="cart-badge">0</span></a></li>
+      </ul>
+    </nav>
+    <div class="tekstgrootte-knoppen" aria-label="Tekstgrootte aanpassen">
+      <span>Tekst:</span>
+      <button data-grootte="normaal" aria-label="Normale tekstgrootte">A</button>
+      <button data-grootte="groot" aria-label="Grote tekstgrootte">A+</button>
+      <button data-grootte="extra-groot" aria-label="Extra grote tekstgrootte">A++</button>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>Bestelling afronden</h2>
+    <div id="leeg-bericht" style="display:none;" class="winkelwagen-leeg">
+      <p>Uw winkelwagen is leeg, dus er valt niets te bestellen.</p>
+      <a href="producten.html" class="knop knop-primair">Bekijk de producten</a>
+    </div>
+    <div id="bestel-inhoud" class="bestel-layout">
+      <div class="formulier-blok">
+        <form id="bestelformulier" novalidate>
+          <label for="naam">Naam</label>
+          <input type="text" id="naam" name="naam" required autocomplete="name">
+
+          <div class="formulier-rij">
+            <div>
+              <label for="straat">Straat en huisnummer</label>
+              <input type="text" id="straat" name="straat" required autocomplete="street-address">
+            </div>
+            <div>
+              <label for="postcode">Postcode</label>
+              <input type="text" id="postcode" name="postcode" required autocomplete="postal-code">
+            </div>
+          </div>
+
+          <label for="plaats">Woonplaats</label>
+          <input type="text" id="plaats" name="plaats" required autocomplete="address-level2">
+
+          <label for="telefoon">Telefoonnummer</label>
+          <input type="tel" id="telefoon" name="telefoon" required autocomplete="tel">
+
+          <div class="formulier-rij">
+            <div>
+              <label for="bezorgdag">Gewenste bezorgdag</label>
+              <select id="bezorgdag" name="bezorgdag" required>
+                <option value="">Kies een dag</option>
+                <option>Dinsdag</option>
+                <option>Woensdag</option>
+                <option>Donderdag</option>
+                <option>Vrijdag</option>
+                <option>Zaterdag</option>
+              </select>
+            </div>
+            <div>
+              <label for="tijdslot">Gewenst tijdstip</label>
+              <select id="tijdslot" name="tijdslot" required>
+                <option value="">Kies een tijdstip</option>
+                <option>09:00 – 11:00</option>
+                <option>11:00 – 13:00</option>
+                <option>13:00 – 15:00</option>
+                <option>15:00 – 17:00</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="opmerkingen">Opmerkingen (bijvoorbeeld een allergie of iets waar we rekening mee moeten houden)</label>
+          <textarea id="opmerkingen" name="opmerkingen" rows="3"></textarea>
+
+          <p class="let-op">Er wordt nog niet online betaald. U betaalt gewoon bij bezorging, zoals u gewend bent.</p>
+
+          <button type="submit" class="knop knop-primair knop-groot" style="margin-top:1.5rem;">Bestelling plaatsen</button>
+        </form>
+      </div>
+
+      <div class="overzicht-blok">
+        <h2>Uw bestelling</h2>
+        <div id="overzicht-regels"></div>
+        <div class="overzicht-totaal">
+          <span>Totaal</span>
+          <span id="overzicht-totaal-bedrag"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="hoofd-footer">
+  <div class="container footer-grid">
+    <div>
+      <h4>Schaap's Vis</h4>
+      <p>Uw vertrouwde viszaak, nu ook gratis aan huis bezorgd.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>📞 <a href="tel:+31000000000">0000 - 000 000</a></p>
+      <p>✉️ <a href="mailto:bestellingen@schaapsvis.nl">bestellingen@schaapsvis.nl</a></p>
+    </div>
+    <div>
+      <h4>Openingstijden</h4>
+      <p>Dinsdag t/m zaterdag<br>09:00 – 17:00</p>
+    </div>
+  </div>
+  <p class="copyright">&copy; 2026 Schaap's Vis. Alle prijzen zijn onder voorbehoud.</p>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/site.js"></script>
+<script>
+  /* LET OP (voor ontwikkelaars): er is geen backend. Bij het versturen
+     wordt een e-mail met de bestelgegevens klaargezet voor de vishandel.
+     Vervang dit later door een echte order-verwerking (bijvoorbeeld een
+     eigen server, Formspree of Netlify Forms) zodat niets afhangt van of
+     de klant zelf de e-mail verstuurt. */
+  const BESTEL_EMAIL = "bestellingen@schaapsvis.nl";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const regels = winkelwagenRegels();
+
+    if (regels.length === 0) {
+      document.getElementById("leeg-bericht").style.display = "block";
+      document.getElementById("bestel-inhoud").style.display = "none";
+      return;
+    }
+
+    const regelsContainer = document.getElementById("overzicht-regels");
+    regels.forEach((regel) => {
+      const rij = document.createElement("div");
+      rij.className = "overzicht-regel";
+      rij.innerHTML = `<span>${regel.aantal} × ${regel.product.naam}</span><span>${formatPrijs(regel.subtotaal)}</span>`;
+      regelsContainer.appendChild(rij);
+    });
+    document.getElementById("overzicht-totaal-bedrag").textContent = formatPrijs(winkelwagenTotaalPrijs());
+
+    document.getElementById("bestelformulier").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const form = e.target;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const gegevens = {
+        naam: form.naam.value.trim(),
+        straat: form.straat.value.trim(),
+        postcode: form.postcode.value.trim(),
+        plaats: form.plaats.value.trim(),
+        telefoon: form.telefoon.value.trim(),
+        bezorgdag: form.bezorgdag.value,
+        tijdslot: form.tijdslot.value,
+        opmerkingen: form.opmerkingen.value.trim(),
+      };
+
+      const regelTekst = regels
+        .map((r) => `- ${r.aantal} × ${r.product.naam} (${formatPrijs(r.subtotaal)})`)
+        .join("\n");
+
+      const bodyTekst =
+        `Nieuwe bestelling via de website\n\n` +
+        `Naam: ${gegevens.naam}\n` +
+        `Adres: ${gegevens.straat}, ${gegevens.postcode} ${gegevens.plaats}\n` +
+        `Telefoon: ${gegevens.telefoon}\n` +
+        `Bezorgmoment: ${gegevens.bezorgdag}, ${gegevens.tijdslot}\n` +
+        `Opmerkingen: ${gegevens.opmerkingen || "-"}\n\n` +
+        `Bestelde producten:\n${regelTekst}\n\n` +
+        `Totaal: ${formatPrijs(winkelwagenTotaalPrijs())}`;
+
+      const mailtoLink =
+        `mailto:${BESTEL_EMAIL}?subject=${encodeURIComponent("Nieuwe bestelling: " + gegevens.naam)}` +
+        `&body=${encodeURIComponent(bodyTekst)}`;
+
+      try {
+        sessionStorage.setItem(
+          "schaapsvis_laatste_bestelling",
+          JSON.stringify({ gegevens, regels, totaal: winkelwagenTotaalPrijs(), mailtoLink })
+        );
+      } catch (fout) {
+        console.error("Kon bestelling niet tijdelijk opslaan:", fout);
+      }
+
+      maakWinkelwagenLeeg();
+      window.location.href = "bedankt.html";
+    });
+  });
+</script>
+</body>
+</html>

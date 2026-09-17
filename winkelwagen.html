@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Winkelwagen — Schaap's Vis</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="top-balk">
+  <div class="container">
+    <span>📞 Liever bellen? Wij helpen u graag: <a href="tel:+31000000000">0000 - 000 000</a></span>
+  </div>
+</div>
+
+<header class="hoofd">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="logo-icoon">🐟</span> Schaap's Vis</a>
+    <nav class="hoofdmenu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="producten.html">Producten</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="winkelwagen.html" class="winkelwagen-link actief">🛒 Winkelwagen <span id="cart-badge">0</span></a></li>
+      </ul>
+    </nav>
+    <div class="tekstgrootte-knoppen" aria-label="Tekstgrootte aanpassen">
+      <span>Tekst:</span>
+      <button data-grootte="normaal" aria-label="Normale tekstgrootte">A</button>
+      <button data-grootte="groot" aria-label="Grote tekstgrootte">A+</button>
+      <button data-grootte="extra-groot" aria-label="Extra grote tekstgrootte">A++</button>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>Uw winkelwagen</h2>
+    <div id="winkelwagen-inhoud"></div>
+  </div>
+</section>
+
+<footer class="hoofd-footer">
+  <div class="container footer-grid">
+    <div>
+      <h4>Schaap's Vis</h4>
+      <p>Uw vertrouwde viszaak, nu ook gratis aan huis bezorgd.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>📞 <a href="tel:+31000000000">0000 - 000 000</a></p>
+      <p>✉️ <a href="mailto:bestellingen@schaapsvis.nl">bestellingen@schaapsvis.nl</a></p>
+    </div>
+    <div>
+      <h4>Openingstijden</h4>
+      <p>Dinsdag t/m zaterdag<br>09:00 – 17:00</p>
+    </div>
+  </div>
+  <p class="copyright">&copy; 2026 Schaap's Vis. Alle prijzen zijn onder voorbehoud.</p>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/site.js"></script>
+<script>
+  function tekenWinkelwagen() {
+    const container = document.getElementById("winkelwagen-inhoud");
+    const regels = winkelwagenRegels();
+
+    if (regels.length === 0) {
+      container.innerHTML = `
+        <div class="winkelwagen-leeg">
+          <p>Uw winkelwagen is nog leeg.</p>
+          <a href="producten.html" class="knop knop-primair">Bekijk de producten</a>
+        </div>
+      `;
+      return;
+    }
+
+    let rijenHtml = "";
+    regels.forEach((regel) => {
+      rijenHtml += `
+        <tr data-id="${regel.product.id}">
+          <td>${regel.product.emoji} ${regel.product.naam}<br><span class="product-eenheid">${regel.product.eenheid}</span></td>
+          <td>
+            <div class="aantal-kiezer">
+              <button type="button" class="min-knop" aria-label="Minder">−</button>
+              <input type="number" class="aantal-invoer" value="${regel.aantal}" min="1" max="20" aria-label="Aantal">
+              <button type="button" class="plus-knop" aria-label="Meer">+</button>
+            </div>
+          </td>
+          <td>${formatPrijs(regel.subtotaal)}</td>
+          <td><button type="button" class="verwijder-knop">Verwijderen</button></td>
+        </tr>
+      `;
+    });
+
+    container.innerHTML = `
+      <table class="winkelwagen-tabel">
+        <thead>
+          <tr><th>Product</th><th>Aantal</th><th>Subtotaal</th><th></th></tr>
+        </thead>
+        <tbody>${rijenHtml}</tbody>
+      </table>
+      <div class="winkelwagen-totaal">
+        <span>Totaal:</span>
+        <span>${formatPrijs(winkelwagenTotaalPrijs())}</span>
+      </div>
+      <div class="winkelwagen-acties">
+        <a href="producten.html" class="knop knop-secundair">Verder winkelen</a>
+        <a href="bestellen.html" class="knop knop-primair knop-groot" style="width:auto;">Verder naar bestellen</a>
+      </div>
+    `;
+
+    container.querySelectorAll("tr[data-id]").forEach((rij) => {
+      const id = rij.dataset.id;
+      const invoer = rij.querySelector(".aantal-invoer");
+
+      rij.querySelector(".min-knop").addEventListener("click", () => {
+        const nieuwAantal = Math.max(1, parseInt(invoer.value || "1", 10) - 1);
+        stelAantalIn(id, nieuwAantal);
+        tekenWinkelwagen();
+      });
+      rij.querySelector(".plus-knop").addEventListener("click", () => {
+        const nieuwAantal = Math.min(20, parseInt(invoer.value || "1", 10) + 1);
+        stelAantalIn(id, nieuwAantal);
+        tekenWinkelwagen();
+      });
+      invoer.addEventListener("change", () => {
+        const nieuwAantal = Math.max(1, parseInt(invoer.value || "1", 10));
+        stelAantalIn(id, nieuwAantal);
+        tekenWinkelwagen();
+      });
+      rij.querySelector(".verwijder-knop").addEventListener("click", () => {
+        verwijderUitWinkelwagen(id);
+        tekenWinkelwagen();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", tekenWinkelwagen);
+</script>
+</body>
+</html>

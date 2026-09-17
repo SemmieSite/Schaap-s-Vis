@@ -1,0 +1,689 @@
+/* Schaap's Vis - Bezorgservice
+   Ontworpen voor een oudere doelgroep: grote letters, veel contrast,
+   grote knoppen, weinig afleiding. */
+
+:root {
+  --kleur-donker: #0b2545;
+  --kleur-zee: #0b6e6e;
+  --kleur-zee-donker: #084f4f;
+  --kleur-accent: #d9612b;
+  --kleur-accent-donker: #b64d1f;
+  --kleur-crème: #fbf7f0;
+  --kleur-wit: #ffffff;
+  --kleur-tekst: #1a1a1a;
+  --kleur-rand: #d8d2c4;
+  --radius: 10px;
+  --font-basis: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-basis);
+}
+
+html[data-tekstgrootte="groot"] {
+  font-size: 23px;
+}
+
+html[data-tekstgrootte="extra-groot"] {
+  font-size: 26px;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Verdana, Arial, sans-serif;
+  color: var(--kleur-tekst);
+  background: var(--kleur-crème);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--kleur-zee-donker);
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- Header ---------- */
+
+.top-balk {
+  background: var(--kleur-donker);
+  color: var(--kleur-wit);
+  font-size: 0.85rem;
+  padding: 0.4rem 0;
+}
+
+.top-balk .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: center;
+}
+
+.top-balk a {
+  color: var(--kleur-wit);
+  text-decoration: none;
+}
+
+.top-balk a:hover {
+  text-decoration: underline;
+}
+
+header.hoofd {
+  background: var(--kleur-wit);
+  border-bottom: 3px solid var(--kleur-zee);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.hoofd .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--kleur-donker);
+  text-decoration: none;
+}
+
+.logo .logo-icoon {
+  font-size: 2rem;
+}
+
+nav.hoofdmenu ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+nav.hoofdmenu a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--kleur-donker);
+  padding: 0.5rem 0.25rem;
+  display: inline-block;
+}
+
+nav.hoofdmenu a:hover,
+nav.hoofdmenu a.actief {
+  color: var(--kleur-zee-donker);
+  border-bottom: 3px solid var(--kleur-accent);
+}
+
+.winkelwagen-link {
+  background: var(--kleur-zee);
+  color: var(--kleur-wit) !important;
+  border-radius: 999px;
+  padding: 0.6rem 1.1rem !important;
+  border-bottom: none !important;
+}
+
+.winkelwagen-link:hover {
+  background: var(--kleur-zee-donker);
+  border-bottom: none !important;
+}
+
+#cart-badge {
+  background: var(--kleur-accent);
+  color: var(--kleur-wit);
+  border-radius: 999px;
+  padding: 0.05rem 0.55rem;
+  font-size: 0.85rem;
+  margin-left: 0.3rem;
+}
+
+.tekstgrootte-knoppen {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.tekstgrootte-knoppen button {
+  background: var(--kleur-wit);
+  border: 2px solid var(--kleur-donker);
+  color: var(--kleur-donker);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+}
+
+.tekstgrootte-knoppen button:hover,
+.tekstgrootte-knoppen button.actief {
+  background: var(--kleur-donker);
+  color: var(--kleur-wit);
+}
+
+/* ---------- Knoppen ---------- */
+
+.knop {
+  display: inline-block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.9rem 1.75rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  min-height: 3.25rem;
+  line-height: 1.4rem;
+}
+
+.knop-primair {
+  background: var(--kleur-accent);
+  color: var(--kleur-wit);
+}
+
+.knop-primair:hover {
+  background: var(--kleur-accent-donker);
+}
+
+.knop-secundair {
+  background: var(--kleur-wit);
+  color: var(--kleur-zee-donker);
+  border: 2px solid var(--kleur-zee);
+}
+
+.knop-secundair:hover {
+  background: #eef7f7;
+}
+
+.knop-groot {
+  font-size: 1.25rem;
+  padding: 1.1rem 2.25rem;
+  width: 100%;
+}
+
+.knop:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  background: linear-gradient(135deg, var(--kleur-zee), var(--kleur-zee-donker));
+  color: var(--kleur-wit);
+  padding: 3.5rem 0;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin: 0 0 1.75rem;
+}
+
+.hero-knoppen {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-plaatje {
+  font-size: 8rem;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-knoppen {
+    justify-content: center;
+  }
+  .hero-plaatje {
+    font-size: 5rem;
+  }
+}
+
+/* ---------- Secties ---------- */
+
+section {
+  padding: 3rem 0;
+}
+
+section h2 {
+  font-size: 1.9rem;
+  color: var(--kleur-donker);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.stappen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.stap {
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.stap .stap-nummer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--kleur-accent);
+  color: var(--kleur-wit);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.stap h3 {
+  margin: 0.25rem 0 0.5rem;
+  color: var(--kleur-donker);
+}
+
+@media (max-width: 800px) {
+  .stappen {
+    grid-template-columns: 1fr;
+  }
+}
+
+.uitleg-blok {
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gebied-strook {
+  background: var(--kleur-donker);
+  color: var(--kleur-wit);
+  text-align: center;
+  padding: 2.5rem 0;
+}
+
+.gebied-strook h2 {
+  color: var(--kleur-wit);
+}
+
+/* ---------- Producten ---------- */
+
+.producten-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+}
+
+.producten-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-kaart {
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.product-plaatje {
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.product-kaart h3 {
+  margin: 0;
+  color: var(--kleur-donker);
+  font-size: 1.2rem;
+}
+
+.product-eenheid {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.product-prijs {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--kleur-zee-donker);
+}
+
+.product-acties {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.aantal-kiezer {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--kleur-rand);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.aantal-kiezer button {
+  background: var(--kleur-crème);
+  border: none;
+  font-size: 1.3rem;
+  width: 2.5rem;
+  height: 2.75rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.aantal-kiezer input {
+  width: 2.75rem;
+  text-align: center;
+  border: none;
+  font-size: 1.1rem;
+  height: 2.75rem;
+  -moz-appearance: textfield;
+}
+
+.toegevoegd-melding {
+  color: var(--kleur-zee-donker);
+  font-weight: 700;
+  font-size: 0.95rem;
+  min-height: 1.4rem;
+}
+
+/* ---------- Winkelwagen ---------- */
+
+.winkelwagen-tabel {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.winkelwagen-tabel th,
+.winkelwagen-tabel td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--kleur-rand);
+  vertical-align: middle;
+}
+
+.winkelwagen-tabel th {
+  background: var(--kleur-crème);
+}
+
+.verwijder-knop {
+  background: none;
+  border: 2px solid var(--kleur-accent);
+  color: var(--kleur-accent-donker);
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.verwijder-knop:hover {
+  background: var(--kleur-accent);
+  color: var(--kleur-wit);
+}
+
+.winkelwagen-totaal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.5rem 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--kleur-donker);
+}
+
+.winkelwagen-leeg {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+}
+
+.winkelwagen-acties {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* ---------- Formulier ---------- */
+
+.bestel-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 850px) {
+  .bestel-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formulier-blok {
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.formulier-blok label {
+  display: block;
+  font-weight: 700;
+  margin: 1.1rem 0 0.4rem;
+  color: var(--kleur-donker);
+}
+
+.formulier-blok label:first-of-type {
+  margin-top: 0;
+}
+
+.formulier-blok input,
+.formulier-blok select,
+.formulier-blok textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.05rem;
+  border: 2px solid var(--kleur-rand);
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.formulier-blok input:focus,
+.formulier-blok select:focus,
+.formulier-blok textarea:focus {
+  outline: 3px solid var(--kleur-zee);
+  border-color: var(--kleur-zee);
+}
+
+.formulier-rij {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 500px) {
+  .formulier-rij {
+    grid-template-columns: 1fr;
+  }
+}
+
+.overzicht-blok {
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.overzicht-blok h2 {
+  text-align: left;
+  font-size: 1.3rem;
+  margin-top: 0;
+}
+
+.overzicht-regel {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--kleur-rand);
+}
+
+.overzicht-totaal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding-top: 1rem;
+  color: var(--kleur-donker);
+}
+
+.let-op {
+  background: #fff4e8;
+  border: 2px solid var(--kleur-accent);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+}
+
+/* ---------- Bedankt ---------- */
+
+.bedankt-blok {
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.bedankt-icoon {
+  font-size: 4.5rem;
+}
+
+/* ---------- Contact ---------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 800px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-kaart {
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.contact-kaart h3 {
+  margin-top: 0;
+  color: var(--kleur-donker);
+}
+
+.contact-regel {
+  display: flex;
+  gap: 0.6rem;
+  margin: 0.5rem 0;
+  font-size: 1.05rem;
+}
+
+/* ---------- Footer ---------- */
+
+footer.hoofd-footer {
+  background: var(--kleur-donker);
+  color: var(--kleur-wit);
+  margin-top: 3rem;
+  padding: 2.5rem 0 1.5rem;
+}
+
+footer.hoofd-footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+footer.hoofd-footer h4 {
+  margin-top: 0;
+}
+
+footer.hoofd-footer a {
+  color: #cfe8e8;
+}
+
+footer.hoofd-footer .copyright {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #24466b;
+  font-size: 0.9rem;
+  color: #b7c6d6;
+}
+
+@media (max-width: 800px) {
+  footer.hoofd-footer .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
