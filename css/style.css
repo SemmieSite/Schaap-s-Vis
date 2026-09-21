@@ -819,6 +819,36 @@ footer.hoofd-footer .copyright {
   }
 }
 
+.over-ons-verhalen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.over-ons-verhaal {
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.over-ons-verhaal h3 {
+  margin: 0 0 0.5rem;
+  color: var(--kleur-donker);
+}
+
+.over-ons-verhaal p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 800px) {
+  .over-ons-verhalen {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- FAQ-chatwidget ---------- */
 
 .faq-chat {
