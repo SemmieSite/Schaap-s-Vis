@@ -724,3 +724,48 @@ footer.hoofd-footer .copyright {
   border: 0;
   border-radius: var(--radius);
 }
+
+/* ---------- Over ons ---------- */
+
+.over-ons h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.over-ons-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.over-ons-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.over-ons-foto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--kleur-rand);
+}
+
+.over-ons-tekst p {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+
+.over-ons-tekst p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 800px) {
+  .over-ons-layout {
+    grid-template-columns: 1fr;
+  }
+}
