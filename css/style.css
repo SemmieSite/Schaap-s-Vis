@@ -769,3 +769,24 @@ footer.hoofd-footer .copyright {
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- Onze biologische zalm ---------- */
+
+.zalm-blok {
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-left: 6px solid var(--kleur-zee);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.zalm-blok p {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+
+.zalm-blok p:last-child {
+  margin-bottom: 0;
+}
