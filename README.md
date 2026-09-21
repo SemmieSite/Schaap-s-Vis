@@ -42,9 +42,9 @@ Dit is een MVP, bewust simpel gehouden. Voor een echt werkende versie nog nodig:
 - **Betalen** gebeurt nog bij bezorging. Online betalen (bijvoorbeeld iDEAL) kan later
   toegevoegd worden.
 - **Productfoto's**: nu staan er emoji's als tijdelijke plaatjes in plaats van echte foto's.
-- **Contactgegevens** (adres, telefoonnummer) staan nog als placeholder
-  (`[Straatnaam en huisnummer]`, `0000 - 000 000`) in alle bestanden — zoek-en-vervang dit
-  voor de echte gegevens.
+- **Adres** staat nog als placeholder (`[Straatnaam en huisnummer]`) in alle bestanden —
+  zoek-en-vervang dit voor de echte gegevens. Het telefoonnummer (06 42900227) staat er
+  al wel in.
 - **Prijzen en producten** in `js/products.js` zijn voorbeelddata.
 
 ## Hosting
