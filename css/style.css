@@ -561,6 +561,55 @@ section h2 {
   }
 }
 
+.bezorgmoment-keuze {
+  border: none;
+  padding: 0;
+  margin: 1.1rem 0 0;
+}
+
+.bezorgmoment-keuze legend {
+  font-weight: 700;
+  color: var(--kleur-donker);
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.bezorgmoment-opties {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bezorgmoment-optie {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  border: 2px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  cursor: pointer;
+  background: var(--kleur-wit);
+}
+
+.bezorgmoment-optie input {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  accent-color: var(--kleur-zee);
+}
+
+.bezorgmoment-optie:has(input:checked) {
+  border-color: var(--kleur-zee);
+  background: #eef7f7;
+}
+
+.bezorgmoment-optie:has(input:focus-visible) {
+  outline: 3px solid var(--kleur-zee);
+  outline-offset: 2px;
+}
+
 .overzicht-blok {
   background: var(--kleur-wit);
   border: 1px solid var(--kleur-rand);

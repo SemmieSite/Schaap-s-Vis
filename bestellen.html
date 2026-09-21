@@ -64,29 +64,19 @@
           <label for="telefoon">Telefoonnummer</label>
           <input type="tel" id="telefoon" name="telefoon" required autocomplete="tel">
 
-          <div class="formulier-rij">
-            <div>
-              <label for="bezorgdag">Gewenste bezorgdag</label>
-              <select id="bezorgdag" name="bezorgdag" required>
-                <option value="">Kies een dag</option>
-                <option>Dinsdag</option>
-                <option>Woensdag</option>
-                <option>Donderdag</option>
-                <option>Vrijdag</option>
-                <option>Zaterdag</option>
-              </select>
+          <fieldset class="bezorgmoment-keuze">
+            <legend>Gewenst bezorgmoment op dinsdag</legend>
+            <div class="bezorgmoment-opties">
+              <label class="bezorgmoment-optie">
+                <input type="radio" name="bezorgmoment" value="Ochtend (09:00 - 12:00)" required>
+                <span>Ochtend (09:00 - 12:00)</span>
+              </label>
+              <label class="bezorgmoment-optie">
+                <input type="radio" name="bezorgmoment" value="Middag (13:00 - 17:00)" required>
+                <span>Middag (13:00 - 17:00)</span>
+              </label>
             </div>
-            <div>
-              <label for="tijdslot">Gewenst tijdstip</label>
-              <select id="tijdslot" name="tijdslot" required>
-                <option value="">Kies een tijdstip</option>
-                <option>09:00 – 11:00</option>
-                <option>11:00 – 13:00</option>
-                <option>13:00 – 15:00</option>
-                <option>15:00 – 17:00</option>
-              </select>
-            </div>
-          </div>
+          </fieldset>
 
           <label for="opmerkingen">Opmerkingen (bijvoorbeeld een allergie of iets waar we rekening mee moeten houden)</label>
           <textarea id="opmerkingen" name="opmerkingen" rows="3"></textarea>
@@ -172,8 +162,7 @@
         postcode: form.postcode.value.trim(),
         plaats: form.plaats.value.trim(),
         telefoon: form.telefoon.value.trim(),
-        bezorgdag: form.bezorgdag.value,
-        tijdslot: form.tijdslot.value,
+        bezorgmoment: form.bezorgmoment.value,
         opmerkingen: form.opmerkingen.value.trim(),
       };
 
@@ -186,7 +175,7 @@
         `Naam: ${gegevens.naam}\n` +
         `Adres: ${gegevens.straat}, ${gegevens.postcode} ${gegevens.plaats}\n` +
         `Telefoon: ${gegevens.telefoon}\n` +
-        `Bezorgmoment: ${gegevens.bezorgdag}, ${gegevens.tijdslot}\n` +
+        `Bezorgmoment: dinsdag, ${gegevens.bezorgmoment}\n` +
         `Opmerkingen: ${gegevens.opmerkingen || "-"}\n\n` +
         `Bestelde producten:\n${regelTekst}\n\n` +
         `Totaal: ${formatPrijs(winkelwagenTotaalPrijs())}`;
