@@ -820,32 +820,85 @@ footer.hoofd-footer .copyright {
 }
 
 .over-ons-verhalen {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-top: 2.5rem;
 }
 
-.over-ons-verhaal {
+.tijdlijn-blok {
   background: var(--kleur-wit);
   border: 1px solid var(--kleur-rand);
   border-radius: var(--radius);
   padding: 1.75rem;
 }
 
-.over-ons-verhaal h3 {
-  margin: 0 0 0.5rem;
+.tijdlijn-blok h3 {
+  margin: 0 0 1.25rem;
   color: var(--kleur-donker);
 }
 
-.over-ons-verhaal p {
+.tijdlijn-blok p {
   margin: 0;
   font-size: 1.05rem;
 }
 
-@media (max-width: 800px) {
-  .over-ons-verhalen {
-    grid-template-columns: 1fr;
+.tijdlijn-markers {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.tijdlijn-markers::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: var(--kleur-rand);
+}
+
+.tijdlijn-marker {
+  position: relative;
+  background: var(--kleur-zee);
+  color: var(--kleur-wit);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.pull-quote {
+  padding: 0.25rem 0 0.25rem 1.75rem;
+  border-left: 6px solid var(--kleur-accent);
+}
+
+.pull-quote h3 {
+  margin: 0 0 0.5rem;
+  color: var(--kleur-donker);
+  font-size: 1.1rem;
+}
+
+.pull-quote p {
+  margin: 0;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--kleur-donker);
+  line-height: 1.5;
+}
+
+@media (max-width: 500px) {
+  .tijdlijn-markers {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .tijdlijn-markers::before {
+    display: none;
   }
 }
 
@@ -992,4 +1045,162 @@ footer.hoofd-footer .copyright {
     right: 1rem;
     bottom: 1rem;
   }
+}
+
+/* ---------- Results bar ---------- */
+
+.results-balk {
+  background: var(--kleur-wit);
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--kleur-rand);
+}
+
+.results-lijst {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.results-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  color: var(--kleur-donker);
+  font-size: 1.05rem;
+}
+
+.results-icoon {
+  font-size: 2rem;
+}
+
+@media (max-width: 800px) {
+  .results-lijst {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Problem-sectie ---------- */
+
+.probleem-lijst {
+  list-style: none;
+  padding: 0;
+  max-width: 650px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.probleem-lijst li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+}
+
+.probleem-lijst li::before {
+  content: "✓";
+  color: var(--kleur-zee);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+/* ---------- Offer-sectie ---------- */
+
+.aanbod-lijst {
+  list-style: none;
+  padding: 0;
+  max-width: 650px;
+  margin: 0 auto 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.aanbod-lijst li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: var(--kleur-wit);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+}
+
+.aanbod-lijst li::before {
+  content: "✓";
+  color: var(--kleur-accent);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+.aanbod-cta {
+  text-align: center;
+}
+
+/* ---------- Testimonials ---------- */
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.pull-quote .testimonial-naam {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--kleur-zee-donker);
+}
+
+@media (max-width: 700px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Trust-bar ---------- */
+
+.trust-balk {
+  background: var(--kleur-rand);
+  padding: 2rem 0;
+}
+
+.trust-lijst {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.trust-item {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--kleur-donker);
+}
+
+@media (max-width: 800px) {
+  .trust-lijst {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Footer CTA ---------- */
+
+.footer-cta {
+  text-align: center;
+  margin-top: 2rem;
 }
