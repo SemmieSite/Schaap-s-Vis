@@ -6,14 +6,16 @@
   --kleur-donker: #0b2545;
   --kleur-zee: #0b6e6e;
   --kleur-zee-donker: #084f4f;
-  --kleur-accent: #d9612b;
-  --kleur-accent-donker: #b64d1f;
-  --kleur-crème: #fbf7f0;
+  --kleur-accent: #9c6210;
+  --kleur-accent-donker: #7d4e0d;
+  --kleur-tegel: #eef3f2;
   --kleur-wit: #ffffff;
   --kleur-tekst: #1a1a1a;
   --kleur-rand: #d8d2c4;
-  --radius: 10px;
+  --radius: 7px;
   --font-basis: 17px;
+  --font-koppen: "Bitter", Georgia, "Times New Roman", serif;
+  --font-tekst: "Public Sans", Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -34,10 +36,18 @@ html[data-tekstgrootte="extra-groot"] {
 
 body {
   margin: 0;
-  font-family: "New York", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  font-family: var(--font-tekst);
+  font-weight: 400;
   color: var(--kleur-tekst);
-  background: var(--kleur-crème);
+  background: var(--kleur-tegel);
   line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-koppen);
+  font-weight: 700;
 }
 
 a {
@@ -408,7 +418,7 @@ section h2 {
 }
 
 .aantal-kiezer button {
-  background: var(--kleur-crème);
+  background: var(--kleur-tegel);
   border: none;
   font-size: 1.3rem;
   width: 2.5rem;
@@ -453,7 +463,7 @@ section h2 {
 }
 
 .winkelwagen-tabel th {
-  background: var(--kleur-crème);
+  background: var(--kleur-tegel);
 }
 
 .verwijder-knop {
@@ -1005,7 +1015,7 @@ footer.hoofd-footer .copyright {
 
 .faq-chat-bubbel-antwoord {
   align-self: flex-start;
-  background: var(--kleur-crème);
+  background: var(--kleur-tegel);
   color: var(--kleur-tekst);
   border: 1px solid var(--kleur-rand);
 }
@@ -1073,7 +1083,13 @@ footer.hoofd-footer .copyright {
 }
 
 .results-icoon {
-  font-size: 2rem;
+  display: flex;
+  color: var(--kleur-donker);
+}
+
+.results-icoon svg {
+  width: 1.9rem;
+  height: 1.9rem;
 }
 
 @media (max-width: 800px) {
@@ -1175,8 +1191,10 @@ footer.hoofd-footer .copyright {
 /* ---------- Trust-bar ---------- */
 
 .trust-balk {
-  background: var(--kleur-rand);
-  padding: 2rem 0;
+  background: var(--kleur-donker);
+  padding: 2.5rem 0;
+  border-top: 3px dotted var(--kleur-zee);
+  border-bottom: 3px dotted var(--kleur-zee);
 }
 
 .trust-lijst {
@@ -1187,9 +1205,10 @@ footer.hoofd-footer .copyright {
 }
 
 .trust-item {
+  font-family: var(--font-koppen);
   font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--kleur-donker);
+  font-size: 1.35rem;
+  color: var(--kleur-wit);
 }
 
 @media (max-width: 800px) {
