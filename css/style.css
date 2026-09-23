@@ -34,7 +34,7 @@ html[data-tekstgrootte="extra-groot"] {
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Verdana, Arial, sans-serif;
+  font-family: "New York", "Iowan Old Style", Georgia, "Times New Roman", serif;
   color: var(--kleur-tekst);
   background: var(--kleur-crème);
   line-height: 1.5;
