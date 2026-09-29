@@ -1,0 +1,9 @@
+Zet hier je eigen foto's. Exacte namen:
+
+img/hero.jpg        grote foto bovenaan de homepage
+img/team-foto.jpg   foto van de familie of het team
+img/producten/zalm.jpg, kibbeling.jpg, makreel.jpg, garnalen.jpg,
+mosselen.jpg, haring.jpg, lekkerbek.jpg, soep.jpg
+
+Liefst liggend formaat, niet groter dan 1 MB per foto.
+Staat er geen foto, dan toont de site vanzelf een tekening of icoon.

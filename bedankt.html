@@ -3,95 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bestelling ontvangen — Schaap's Vis</title>
+<title>Bestelling ontvangen | Schaap's Vis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<a class="skip-link" href="#inhoud">Direct naar de inhoud</a>
+
 <div class="top-balk">
   <div class="container">
-    <span>📞 Liever bellen? Wij helpen u graag: <a href="tel:+31642900227">06 42900227</a></span>
+    <span><svg class="icoon-klein" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> Liever bellen? Wij nemen uw bestelling graag telefonisch op: <a href="tel:+31642900227">06 42900227</a></span>
   </div>
 </div>
 
 <header class="hoofd">
   <div class="container">
-    <a href="index.html" class="logo"><span class="logo-icoon">🐟</span> Schaap's Vis</a>
-    <nav class="hoofdmenu">
+    <a href="index.html" class="logo" aria-label="Schaap's Vis, naar de homepage">
+      <svg class="logo-merk" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="23" fill="#0b6e6e"/><path d="M8.5 24c6.5-8.5 17.5-8.5 24 0-6.5 8.5-17.5 8.5-24 0z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><path d="M32.5 24l8-6v12l-8-6z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><circle cx="15.5" cy="22.2" r="1.7" fill="#fff"/></svg>
+      <span class="logo-tekst">Schaap's Vis<small>vishandel sinds 1938</small></span>
+    </a>
+    <nav class="hoofdmenu" aria-label="Hoofdmenu">
       <ul>
-        <li><a href="index.html">Home</a></li>
         <li><a href="producten.html">Producten</a></li>
+        <li><a href="index.html#over-ons">Over ons</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="winkelwagen.html" class="winkelwagen-link">🛒 Winkelwagen <span id="cart-badge">0</span></a></li>
+        <li class="winkelwagen-item"><a href="winkelwagen.html" class="winkelwagen-link">Winkelwagen <span id="cart-badge">0</span></a></li>
       </ul>
     </nav>
-    <div class="tekstgrootte-knoppen" aria-label="Tekstgrootte aanpassen">
-      <span>Tekst:</span>
-      <button data-grootte="normaal" aria-label="Normale tekstgrootte">A</button>
-      <button data-grootte="groot" aria-label="Grote tekstgrootte">A+</button>
-      <button data-grootte="extra-groot" aria-label="Extra grote tekstgrootte">A++</button>
+    <div class="header-acties">
+      <div class="tekstgrootte-knoppen" role="group" aria-label="Tekstgrootte">
+        <span>Tekst:</span>
+        <button type="button" data-grootte="normaal" aria-label="Normale tekst">A</button>
+        <button type="button" data-grootte="groot" aria-label="Grote tekst">A+</button>
+        <button type="button" data-grootte="extra-groot" aria-label="Extra grote tekst">A++</button>
+      </div>
+      <a href="producten.html" class="knop knop-primair knop-header"><span class="tekst-lang">Bestel voor dinsdag</span><span class="tekst-kort">Bestellen</span></a>
     </div>
   </div>
 </header>
 
+<main id="inhoud">
+
 <section>
   <div class="container">
-    <div class="bedankt-blok">
-      <div class="bedankt-icoon">✅</div>
-      <h2>Bijna klaar, nog één stap</h2>
-      <div id="bedankt-tekst">
-        <p>Klik op de knop hieronder om uw bestelling naar ons te versturen. Uw e-mailprogramma opent dan met alles al ingevuld, u hoeft alleen nog op "Verzenden" te klikken.</p>
-        <p><a id="verstuur-knop" href="#" class="knop knop-primair knop-groot" style="display:inline-block;width:auto;">Bestelling verzenden per e-mail</a></p>
-        <p class="let-op">Lukt dit niet, of gaat u liever niet met e-mail om? Bel ons dan gewoon op <a href="tel:+31642900227">06 42900227</a> en wij noteren uw bestelling telefonisch.</p>
-      </div>
-      <p><a href="index.html">Terug naar de homepage</a></p>
+    <div class="bedankt-blok" id="bedankt-blok">
+      <p>Een moment...</p>
     </div>
   </div>
 </section>
 
+</main>
+
 <footer class="hoofd-footer">
   <div class="container footer-grid">
     <div>
-      <h4>Schaap's Vis</h4>
-      <p>Uw vertrouwde viszaak, nu ook gratis aan huis bezorgd.</p>
+      <h2 class="footer-kop">Schaap's Vis</h2>
+      <p>Uw vertrouwde vishandel in Leiden, nu ook gratis aan huis bezorgd.</p>
+      <p>Herenstraat 48<br>2313 AL Leiden</p>
     </div>
     <div>
-      <h4>Contact</h4>
-      <p>📞 <a href="tel:+31642900227">06 42900227</a></p>
-      <p>✉️ <a href="mailto:bestellingen@schaapsvis.nl">bestellingen@schaapsvis.nl</a></p>
+      <h2 class="footer-kop">Contact</h2>
+      <p>Telefoon: <a href="tel:+31642900227">06 42900227</a></p>
+      <p><a href="https://www.instagram.com/schaapsvishandel/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/schaapsvishandel/" target="_blank" rel="noopener">Facebook</a></p>
     </div>
     <div>
-      <h4>Openingstijden</h4>
-      <p>Dinsdag t/m vrijdag: 09:00 – 18:00<br>Zaterdag: 09:00 – 17:00</p>
+      <h2 class="footer-kop">Openingstijden winkel</h2>
+      <p>Dinsdag tot en met vrijdag: 9:00 tot 18:00<br>Zaterdag: 9:00 tot 17:00<br>Bezorgen: elke dinsdag</p>
     </div>
   </div>
-  <p class="copyright">&copy; 2026 Schaap's Vis. Alle prijzen zijn onder voorbehoud.</p>
+  <div class="container footer-cta">
+    <a href="producten.html" class="knop knop-primair">Bestel voor dinsdag</a>
+  </div>
+  <p class="copyright">&copy; 2026 Schaap's Vis · <a href="privacy.html">Privacy</a> · Prijzen onder voorbehoud</p>
 </footer>
 
+<script src="js/instellingen.js"></script>
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/site.js"></script>
 <script src="js/faq-chat.js"></script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    let laatsteBestelling = null;
+    const blok = document.getElementById("bedankt-blok");
+    let b = null;
     try {
       const ruw = sessionStorage.getItem("schaapsvis_laatste_bestelling");
-      laatsteBestelling = ruw ? JSON.parse(ruw) : null;
+      b = ruw ? JSON.parse(ruw) : null;
     } catch (fout) {
       console.error("Kon laatste bestelling niet lezen:", fout);
     }
 
-    const knop = document.getElementById("verstuur-knop");
-    if (laatsteBestelling && laatsteBestelling.mailtoLink) {
-      knop.href = laatsteBestelling.mailtoLink;
+    const tel = `<a href="${INSTELLINGEN.telefoonLink}">${INSTELLINGEN.telefoon}</a>`;
+    const vinkje = `<div class="bedankt-icoon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4L12 14l-3-3"/></svg></div>`;
+
+    if (b && b.verzonden) {
+      const moment = b.gegevens && b.gegevens.bezorgmoment ? b.gegevens.bezorgmoment.toLowerCase() : "";
+      blok.innerHTML = `
+        ${vinkje}
+        <h1 class="pagina-titel">Dank u wel, uw bestelling is binnen!</h1>
+        <p>Wij brengen uw vis aanstaande dinsdag${moment ? " in de " + moment : ""}. U betaalt ${b.totaal} aan de deur.</p>
+        <p>Wilt u iets veranderen? Bel ons op ${tel}.</p>
+        <p><a href="index.html" class="knop knop-secundair">Terug naar de homepage</a></p>`;
+    } else if (b && b.mailtoLink) {
+      blok.innerHTML = `
+        ${vinkje}
+        <h1 class="pagina-titel">Bijna klaar, nog één stap</h1>
+        <p>Klik op de knop hieronder. Uw e-mailprogramma opent dan met de bestelling al ingevuld. U hoeft alleen nog op <strong>Verzenden</strong> te klikken.</p>
+        <p><a href="${b.mailtoLink}" class="knop knop-primair knop-groot-auto">Bestelling verzenden per e-mail</a></p>
+        <p class="let-op">Lukt dit niet? Bel ons dan op ${tel}, dan noteren wij uw bestelling telefonisch.</p>
+        <p><a href="index.html">Terug naar de homepage</a></p>`;
     } else {
-      document.getElementById("bedankt-tekst").innerHTML =
-        `<p>We hebben geen openstaande bestelling gevonden. Wilt u iets bestellen? Ga dan naar de productpagina, of bel ons gerust.</p>
-         <p><a href="producten.html" class="knop knop-primair">Bekijk de producten</a></p>`;
+      blok.innerHTML = `
+        <h1 class="pagina-titel">Geen openstaande bestelling</h1>
+        <p>Wilt u iets bestellen? Kies uw vis bij de producten, of bel ons op ${tel}.</p>
+        <p><a href="producten.html" class="knop knop-primair">Bekijk de producten</a></p>`;
     }
   });
 </script>

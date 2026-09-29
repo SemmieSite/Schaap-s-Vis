@@ -1,22 +1,49 @@
-# Schaap's Vis — Bezorgservice (MVP)
+# Schaap's Vis | Bezorgservice (MVP)
 
-Website voor de bezorgservice van de viszaak, gebouwd voor Opdracht 2 (MVP/Webdesign)
-van de minor Startup Ville. Gericht op oudere klanten: grote letters, een knop om de
-tekst nog groter te maken, en op elke pagina een telefoonnummer voor wie liever belt.
+Website voor de bezorgservice van Schaap's Vishandel (Herenstraat 48, Leiden), gebouwd voor
+Opdracht 2 (MVP/Webdesign) van de minor Startup Ville. Gericht op oudere klanten: grote
+letters, een knop om de tekst nog groter te maken, en op elke pagina een telefoonnummer voor
+wie liever belt. De homepage volgt de StoryBrand-opbouw: hero, result bar, probleem, missie,
+gids (over ons), oplossing, plan, beloftes, bewijs, voor/na, call to action en footer.
+
+## Snel aanpassen, zonder code
+
+Alles wat je vaak wilt veranderen staat in **`js/instellingen.js`**. Op GitHub: open het
+bestand, klik op het potlood, pas aan, klik op *Commit changes*. Vercel zet het vanzelf live.
+
+| Wat | Waar in `js/instellingen.js` | Zolang het leeg is |
+|---|---|---|
+| Echte klantreacties | `klantreacties` | sectie "Wat klanten zeggen" blijft verborgen |
+| Uitlegvideo (YouTube) | `videoYoutubeId` | videosectie blijft verborgen |
+| Bestellingen en aanmeldingen direct binnen | `formulierUrl` (Formspree-link) | site opent het e-mailprogramma van de klant |
+
+**Foto's** (verschijnen vanzelf zodra ze er staan, anders toont de site een tekening of icoon):
+
+- `img/hero.jpg` grote foto bovenaan (bijvoorbeeld de toonbank of een bezorgtas aan de deur)
+- `img/team-foto.jpg` foto van de familie of het team in de winkel
+- `img/producten/zalm.jpg`, `kibbeling.jpg`, `makreel.jpg`, `garnalen.jpg`, `mosselen.jpg`,
+  `haring.jpg`, `lekkerbek.jpg`, `soep.jpg`
+
+**Bezoekersstatistieken:** in Vercel bij het project op *Analytics* > *Enable* klikken. Het
+script staat al in alle pagina's (`/_vercel/insights/script.js`). Zo zie je hoeveel mensen
+de homepage, de productpagina, de bestelpagina en de bedankpagina bezoeken.
 
 ## Structuur
 
 ```
-index.html         Homepage
+index.html          Homepage (StoryBrand-opbouw)
 producten.html      Productoverzicht met "toevoegen aan winkelwagen"
-winkelwagen.html     Winkelwagen: aantallen aanpassen, verwijderen, totaal
-bestellen.html       Bestelformulier (naam, adres, bezorgmoment) + overzicht
-bedankt.html         Bevestigingspagina na het bestellen
-contact.html         Contactgegevens en telefonisch bestellen
-css/style.css        Alle opmaak
-js/products.js       Productdata (placeholder)
-js/cart.js           Winkelwagen-logica (localStorage)
-js/site.js           Tekstgrootte-voorkeur
+winkelwagen.html    Winkelwagen: aantallen aanpassen, verwijderen, totaal
+bestellen.html      Bestelformulier (naam, adres, bezorgmoment) + overzicht
+bedankt.html        Bevestigingspagina na het bestellen
+contact.html        Contactgegevens en telefonisch bestellen
+privacy.html        Korte privacyverklaring
+css/style.css       Alle opmaak
+js/instellingen.js  Klantreacties, video, formulierdienst (hier pas je dingen aan)
+js/products.js      Producten, prijzen (voorbeeldprijzen) en productkaarten
+js/cart.js          Winkelwagen-logica (localStorage)
+js/site.js          Tekstgrootte, foto's, klantreacties, video, bestelbalk, weekaanbod
+js/faq-chat.js      Veelgestelde vragen als klikbare knoppen
 ```
 
 ## Lokaal bekijken
@@ -33,40 +60,36 @@ en open `http://localhost:8000` in de browser.
 
 Dit is een MVP, bewust simpel gehouden. Voor een echt werkende versie nog nodig:
 
-- **Bestellingen komen nu aan als e-mail.** Er is geen server: bij het afronden van
-  een bestelling opent het e-mailprogramma van de klant met alles al ingevuld, en
-  moet de klant zelf op "verzenden" klikken. Werkt prima als MVP, maar niet
-  waterdicht (als iemand geen e-mailprogramma heeft ingesteld, lukt dit niet — vandaar
-  ook steeds de telefonische bestel-optie op de site). Voor een volgende versie: een
-  echte order-verwerking (bijvoorbeeld Formspree, Netlify Forms, of een eigen back-end).
+- **Bestellingen:** met een Formspree-link in `js/instellingen.js` komen bestellingen en
+  aanmeldingen direct binnen (en zie je ze terug in het Formspree-overzicht). Zonder link
+  opent het e-mailprogramma van de klant met alles al ingevuld. Check dat het adres in
+  `bestelEmail` echt bestaat.
 - **Betalen** gebeurt nog bij bezorging. Online betalen (bijvoorbeeld iDEAL) kan later
   toegevoegd worden.
-- **Productfoto's**: nu staan er emoji's als tijdelijke plaatjes in plaats van echte foto's.
-- **Adres** staat nog als placeholder (`[Straatnaam en huisnummer]`) in alle bestanden —
-  zoek-en-vervang dit voor de echte gegevens. Het telefoonnummer (06 42900227) staat er
-  al wel in.
-- **Prijzen en producten** in `js/products.js` zijn voorbeelddata.
+- **Productfoto's**: zolang er geen foto's in `img/producten/` staan, toont de site iconen.
+- **Prijzen en producten** in `js/products.js` zijn voorbeeldprijzen: check ze met de winkel.
 
 ## Hosting
 
-Deze site is een verzameling statische bestanden, dus prima te hosten via GitHub Pages:
-Settings → Pages → Deploy from branch → `main` → `/ (root)`.
+Gehost op Vercel (schaap-s-vis.vercel.app), gekoppeld aan deze GitHub-repo: elke commit op
+`main` staat binnen een minuut live. Let op: het gratis Hobby-plan van Vercel is alleen voor
+niet-commercieel gebruik. Voor een echte webshop is Vercel Pro nodig (20 dollar per maand).
 
 ## Proces (documentatie voor Opdracht 2)
 
-Dit hoort bij de opdracht, niet bij de live site zelf — bezoekers van de webshop
+Dit hoort bij de opdracht, niet bij de live site zelf, bezoekers van de webshop
 hoeven dit niet te zien.
 
-### Story map — de klantreis
+### Story map, de klantreis
 
 De reis van een oudere klant die verse vis wil, zonder de deur uit te hoeven:
 
-1. **Ontdekken** — hoort over de bezorgservice via de winkel, een folder of via familie/buren.
-2. **Overwegen** — twijfelt: is dit te vertrouwen, en is het niet te ingewikkeld?
-3. **Bestellen** — bestelt via de website, óf belt de winkel voor wie liever niet online bestelt.
-4. **Wachten** — krijgt een bevestiging en weet wanneer de bezorging komt.
-5. **Ontvangen** — vis wordt vers aan de deur bezorgd; betalen kan bij bezorging.
-6. **Terugkomen** — is tevreden en wordt vaste klant, met een volgende bestelling.
+1. **Ontdekken**, hoort over de bezorgservice via de winkel, een folder of via familie/buren.
+2. **Overwegen**, twijfelt: is dit te vertrouwen, en is het niet te ingewikkeld?
+3. **Bestellen**, bestelt via de website, óf belt de winkel voor wie liever niet online bestelt.
+4. **Wachten**, krijgt een bevestiging en weet wanneer de bezorging komt.
+5. **Ontvangen**, vis wordt vers aan de deur bezorgd; betalen kan bij bezorging.
+6. **Terugkomen**, is tevreden en wordt vaste klant, met een volgende bestelling.
 
 ### Features
 
@@ -100,15 +123,15 @@ bestelproces en winkelwagen (zie hierboven).
 
 ### Ontwikkelactiviteiten
 
-1. **Onderzoek & story map** — klantreis en behoeften van oudere klanten in kaart gebracht.
-2. **Low-fi schetsen** — eerste opzet van de belangrijkste schermen.
-3. **Klikbaar prototype** — getest of de flow logisch aanvoelt vóór het bouwen.
-4. **Bouw high-fi MVP** — webshop gebouwd met HTML, CSS en JavaScript, gehost op GitHub Pages.
-5. **Testen & bijschaven** — _[vul aan: bv. testen met echte klanten van de winkel]_
+1. **Onderzoek & story map**, klantreis en behoeften van oudere klanten in kaart gebracht.
+2. **Low-fi schetsen**, eerste opzet van de belangrijkste schermen.
+3. **Klikbaar prototype**, getest of de flow logisch aanvoelt vóór het bouwen.
+4. **Bouw high-fi MVP**, webshop gebouwd met HTML, CSS en JavaScript, gehost op GitHub Pages.
+5. **Testen & bijschaven**, _[vul aan: bv. testen met echte klanten van de winkel]_
 
 ### Team & partners
 
-- **Team**: _[namen teamgenoten en rol, bv. Sem Haasnoot — ontwikkeling & design]_
+- **Team**: _[namen teamgenoten en rol, bv. Sem Haasnoot, ontwikkeling & design]_
 - **Partners**: _[bv. Schaap's Vis (de viszaak) als opdrachtgever/uitvoerende partij]_
 
 ### Kosten

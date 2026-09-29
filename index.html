@@ -3,65 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Schaap's Vis — Verse vis, bezorgd bij u thuis</title>
-<meta name="description" content="Bestel verse vis bij Schaap's Vis en laat het gratis thuisbezorgen. Makkelijk bestellen, ook telefonisch.">
+<title>Schaap's Vis | Verse vis, elke dinsdag thuisbezorgd</title>
+<meta name="description" content="Verse vis van Schaap's Vishandel uit Leiden, elke dinsdag gratis bij u thuis bezorgd. Bestel online of bel ons, u betaalt aan de deur.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<a class="skip-link" href="#inhoud">Direct naar de inhoud</a>
+
 <div class="top-balk">
   <div class="container">
-    <span>📞 Liever bellen? Wij helpen u graag: <a href="tel:+31642900227">06 42900227</a></span>
+    <span><svg class="icoon-klein" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> Liever bellen? Wij nemen uw bestelling graag telefonisch op: <a href="tel:+31642900227">06 42900227</a></span>
   </div>
 </div>
 
 <header class="hoofd">
   <div class="container">
-    <a href="index.html" class="logo"><span class="logo-icoon">🐟</span> Schaap's Vis</a>
-    <nav class="hoofdmenu">
+    <a href="index.html" class="logo" aria-label="Schaap's Vis, naar de homepage">
+      <svg class="logo-merk" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="23" fill="#0b6e6e"/><path d="M8.5 24c6.5-8.5 17.5-8.5 24 0-6.5 8.5-17.5 8.5-24 0z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><path d="M32.5 24l8-6v12l-8-6z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><circle cx="15.5" cy="22.2" r="1.7" fill="#fff"/></svg>
+      <span class="logo-tekst">Schaap's Vis<small>vishandel sinds 1938</small></span>
+    </a>
+    <nav class="hoofdmenu" aria-label="Hoofdmenu">
       <ul>
-        <li><a href="index.html" class="actief">Home</a></li>
         <li><a href="producten.html">Producten</a></li>
+        <li><a href="index.html#over-ons">Over ons</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="winkelwagen.html" class="winkelwagen-link">🛒 Winkelwagen <span id="cart-badge">0</span></a></li>
+        <li class="winkelwagen-item"><a href="winkelwagen.html" class="winkelwagen-link">Winkelwagen <span id="cart-badge">0</span></a></li>
       </ul>
     </nav>
-    <div class="tekstgrootte-knoppen" aria-label="Tekstgrootte aanpassen">
-      <span>Tekst:</span>
-      <button data-grootte="normaal" aria-label="Normale tekstgrootte">A</button>
-      <button data-grootte="groot" aria-label="Grote tekstgrootte">A+</button>
-      <button data-grootte="extra-groot" aria-label="Extra grote tekstgrootte">A++</button>
+    <div class="header-acties">
+      <div class="tekstgrootte-knoppen" role="group" aria-label="Tekstgrootte">
+        <span>Tekst:</span>
+        <button type="button" data-grootte="normaal" aria-label="Normale tekst">A</button>
+        <button type="button" data-grootte="groot" aria-label="Grote tekst">A+</button>
+        <button type="button" data-grootte="extra-groot" aria-label="Extra grote tekst">A++</button>
+      </div>
+      <a href="producten.html" class="knop knop-primair knop-header"><span class="tekst-lang">Bestel voor dinsdag</span><span class="tekst-kort">Bestellen</span></a>
     </div>
   </div>
 </header>
 
+<main id="inhoud">
+
+<!-- HERO: wat bieden we, hoe helpt het, hoe krijg je het -->
 <section class="hero">
   <div class="container">
-    <div>
+    <div class="hero-tekst">
+      <p class="hero-label">Nieuw bij Schaap's Vis: bezorgen aan huis</p>
       <h1>Verse vis, zonder de deur uit te hoeven</h1>
-      <p>Schaap's Vis bezorgt verse vis, garnalen en andere lekkernijen gratis bij u thuis. Rustig bestellen, wij zorgen dat het vers op tijd bij u is.</p>
+      <p class="hero-sub">Elke dinsdag brengen wij uw vis gratis bij u thuis. Bestel online of bel ons. U betaalt pas als de vis bij u is.</p>
       <div class="hero-knoppen">
-        <a href="producten.html" class="knop knop-primair">Bekijk de producten</a>
-        <a href="contact.html" class="knop knop-secundair">Liever bellen? Zo bereikt u ons</a>
+        <a href="producten.html" class="knop knop-primair knop-hero">Bestel voor dinsdag</a>
+        <a href="tel:+31642900227" class="knop knop-licht">
+          <svg class="knop-icoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          Of bel 06 42900227
+        </a>
       </div>
     </div>
-    <div class="hero-plaatje">🐟🦐🦪</div>
+    <div class="hero-beeld" data-foto-plek>
+      <img class="hero-foto" data-bronnen="img/hero.jpg,img/hero.png" alt="Verse vis van Schaap's Vis, klaar om bezorgd te worden">
+      <svg class="hero-illustratie" viewBox="0 0 420 380" role="img" aria-label="Tekening: een tas met verse vis staat bij de voordeur">
+        <circle cx="210" cy="196" r="172" fill="#ffffff" fill-opacity=".08"/>
+        <rect x="58" y="36" width="304" height="296" rx="8" fill="#f4efe6"/>
+        <g stroke="#e8dfcf" stroke-width="2">
+          <line x1="58" y1="96" x2="138" y2="96"/><line x1="282" y1="96" x2="362" y2="96"/>
+          <line x1="58" y1="156" x2="138" y2="156"/><line x1="282" y1="156" x2="362" y2="156"/>
+          <line x1="58" y1="216" x2="138" y2="216"/><line x1="282" y1="216" x2="362" y2="216"/>
+          <line x1="58" y1="276" x2="138" y2="276"/>
+        </g>
+        <rect x="99" y="112" width="5" height="18" fill="#0b2545"/>
+        <path d="M88 130h27l-4 24H92z" fill="#0b2545"/>
+        <rect x="94.5" y="135" width="16" height="14" rx="2" fill="#f6d58e"/>
+        <rect x="138" y="74" width="144" height="258" rx="4" fill="#d9cfbc"/>
+        <rect x="150" y="86" width="120" height="246" rx="3" fill="#0b2545"/>
+        <rect x="166" y="100" width="88" height="40" rx="4" fill="#bfe3e3"/>
+        <line x1="210" y1="100" x2="210" y2="140" stroke="#0b2545" stroke-width="4"/>
+        <rect x="166" y="156" width="88" height="70" rx="4" fill="none" stroke="#ffffff" stroke-opacity=".16" stroke-width="3"/>
+        <rect x="166" y="240" width="88" height="76" rx="4" fill="none" stroke="#ffffff" stroke-opacity=".16" stroke-width="3"/>
+        <circle cx="256" cy="232" r="6" fill="#e0b25a"/>
+        <rect x="197" y="52" width="26" height="15" rx="3" fill="#0b6e6e"/>
+        <rect x="30" y="330" width="360" height="16" rx="4" fill="#c9bba2"/>
+        <rect x="128" y="318" width="164" height="14" rx="3" fill="#b9ab92"/>
+        <rect x="162" y="310" width="96" height="10" rx="3" fill="#9c6210"/>
+        <path d="M72 290h44l-6 42H78z" fill="#0b6e6e"/>
+        <ellipse cx="84" cy="272" rx="9" ry="20" fill="#4f9a74" transform="rotate(-24 84 272)"/>
+        <ellipse cx="104" cy="270" rx="9" ry="21" fill="#3f8a66" transform="rotate(20 104 270)"/>
+        <ellipse cx="94" cy="262" rx="9" ry="24" fill="#5aa67f"/>
+        <path d="M296 248h70l8 84h-86z" fill="#c98a3c"/>
+        <path d="M296 248h70l-2.5 12h-65z" fill="#b57a31"/>
+        <path d="M314 250c0-28 34-28 34 0" fill="none" stroke="#7d4e0d" stroke-width="5" stroke-linecap="round"/>
+        <path d="M306 294c8-10 22-10 30 0-8 10-22 10-30 0z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M336 294l10-7v14l-10-7z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="314" cy="292" r="1.9" fill="#ffffff"/>
+        <line x1="331" y1="224" x2="331" y2="238" stroke="#7d4e0d" stroke-width="2"/>
+        <g transform="rotate(-5 360 214)">
+          <rect x="316" y="198" width="92" height="30" rx="6" fill="#0b2545"/>
+          <text x="362" y="218" text-anchor="middle" font-family="Public Sans, Arial, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Dinsdag</text>
+        </g>
+      </svg>
+    </div>
   </div>
 </section>
 
-<section class="results-balk">
+<!-- RESULT BAR: het eindresultaat voor de klant -->
+<section class="results-balk" aria-label="Wat u krijgt">
   <div class="container">
     <div class="results-lijst">
       <div class="results-item">
         <span class="results-icoon" aria-hidden="true"><svg viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M2 12c6-8 18-8 24 0-6 8-18 8-24 0z"/><path d="M26 12l8-6v12l-8-6z"/><circle cx="9" cy="10" r="1.1" fill="currentColor" stroke="none"/><path d="M12 12c2 1.5 4 1.5 6 0"/></svg></span>
-        <span>Elke week vers binnen</span>
+        <span>Elke dinsdag verse vis op tafel</span>
       </div>
       <div class="results-item">
         <span class="results-icoon" aria-hidden="true"><svg viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M2 16V7h14v9"/><path d="M16 10h6l5 4v2"/><path d="M2 16h1"/><path d="M25 16h2"/><circle cx="9" cy="18" r="2"/><circle cx="21" cy="18" r="2"/></svg></span>
-        <span>Gratis bij u thuis bezorgd</span>
+        <span>Gratis aan de deur, betalen bij levering</span>
       </div>
       <div class="results-item">
         <span class="results-icoon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
@@ -71,161 +128,242 @@
   </div>
 </section>
 
-<section class="probleem-sectie">
+<!-- PROBLEM: extern, intern, filosofisch + de tegenkracht -->
+<section class="probleem-sectie" id="probleem">
   <div class="container">
     <h2>Herkent u dit?</h2>
-    <p class="sectie-intro">Voor veel van onze klanten is dit herkenbaar:</p>
-    <ul class="probleem-lijst">
-      <li>Niet altijd even makkelijk om zelf naar de winkel te gaan</li>
-      <li>Drukke dagen laten weinig ruimte over voor boodschappen doen</li>
-      <li>Op zoek naar verse vis waar u op kunt vertrouwen</li>
-      <li>Liever geen ingewikkelde bestel-apps of abonnementen</li>
-    </ul>
+    <p class="sectie-intro">Verse vis halen is niet altijd zo makkelijk als het zou moeten zijn.</p>
+    <div class="probleem-grid">
+      <div class="probleem-kaart">
+        <svg class="kaart-icoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h3>De winkel is net te ver</h3>
+        <p>Lopen, fietsen of parkeren gaat minder makkelijk dan vroeger. Zeker met regen of een zware tas.</p>
+      </div>
+      <div class="probleem-kaart">
+        <svg class="kaart-icoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>
+        <h3>U wilt niemand lastigvallen</h3>
+        <p>U vraagt liever niet steeds aan uw kinderen of de buren of ze even vis voor u willen halen.</p>
+      </div>
+      <div class="probleem-kaart">
+        <svg class="kaart-icoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        <h3>Apps zijn ingewikkeld</h3>
+        <p>Bestellen via een app vol stappen, wachtwoorden en onbekende bezorgers voelt niet vertrouwd.</p>
+      </div>
+      <div class="probleem-kaart">
+        <svg class="kaart-icoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        <h3>Dan maar geen verse vis?</h3>
+        <p>Wie al jaren bij ons komt, hoeft daar niet mee te stoppen omdat de winkel te ver wordt.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="over-ons">
+<!-- MISSION: waar we voor staan -->
+<section class="missie-sectie">
   <div class="container">
-    <h2><img src="img/logo.png" alt="" class="over-ons-logo">Over ons</h2>
-    <div class="over-ons-layout">
-      <img src="img/team-foto.png" alt="Het team van Schaap's Vis achter de toonbank" class="over-ons-foto">
+    <p class="sectie-kicker">Waar wij voor staan</p>
+    <h2>Wij geloven dat verse vis er is voor iedereen. Ook als de winkel even te ver is.</h2>
+    <p>Daarom brengen we onze vis nu ook bij u thuis, met dezelfde zorg als aan de toonbank.</p>
+  </div>
+</section>
+
+<!-- GUIDE: empathie en autoriteit -->
+<section class="over-ons" id="over-ons">
+  <div class="container">
+    <p class="sectie-kicker">Over ons</p>
+    <h2>Uw visboer in Leiden, sinds 1938</h2>
+    <div class="over-ons-layout" data-foto-plek>
+      <img class="over-ons-foto" data-bronnen="img/team-foto.jpg,img/team-foto.png,img/team-foto.jpeg" alt="De familie achter Schaap's Vis in de winkel">
       <div class="over-ons-tekst">
-        <p>Schaap's Vis is een echt familiebedrijf. De zaak werd in 1938 gestart door meneer Schaap, en toen mijn opa de zaak in de jaren zeventig overnam, hield hij bewust de naam aan. Inmiddels runt mijn vader de winkel alweer vijftien jaar, en werken we er met de hele familie. Ik sta zelf vaste dagen in de winkel, mijn broertje staat op woensdag en zaterdag op de markt.</p>
-        <p>We zijn trots op onze biologische zalm en glutenvrije kibbeling, maar minstens zo trots op onze vaste klanten, van wie sommigen al meer dan zeventig jaar over de vloer komen. Voor ons voelt de winkel soms net een buurthuis: mensen komen niet alleen voor verse vis, maar ook voor een praatje.</p>
+        <p>Schaap's Vishandel zit al sinds 1938 aan de Herenstraat in Leiden. Meneer Schaap begon de zaak, mijn opa nam hem in de jaren zeventig over en hield de naam. Nu runt mijn vader de winkel alweer vijftien jaar, met de hele familie erbij.</p>
+        <p>We zijn trots op onze biologische zalm en glutenvrije kibbeling. Maar het meest trots zijn we op onze vaste klanten. Sommigen komen al meer dan zeventig jaar bij ons, voor vis en voor een praatje.</p>
       </div>
     </div>
-    <div class="over-ons-verhalen">
-      <div class="tijdlijn-blok">
-        <h3>Een stukje geschiedenis</h3>
-        <div class="tijdlijn-markers" aria-hidden="true">
-          <span class="tijdlijn-marker">1938</span>
-          <span class="tijdlijn-marker">Jaren '70</span>
-          <span class="tijdlijn-marker">Nu</span>
-        </div>
-        <p>Schaap's Vis bestaat al sinds 1938. De zaak is opgericht door meneer Schaap, en toen mijn opa het in de jaren zeventig overnam, hield hij de naam bewust in ere. Nu runt mijn vader de winkel alweer vijftien jaar, met de hele familie erbij.</p>
-      </div>
-      <div class="pull-quote">
-        <h3>Waarom we dit werk zo leuk vinden</h3>
-        <p>Voor ons is de winkel meer dan een zaak. Veel klanten komen al tientallen jaren over de vloer, sommigen al meer dan zeventig jaar. Ze komen niet alleen voor verse vis, maar ook voor een praatje. Het voelt vaak meer als een buurthuis dan als een winkel, en dat maakt het werk voor ons zo leuk.</p>
-      </div>
-      <div class="pull-quote">
-        <h3>Waarom ik met bezorgen ben begonnen</h3>
-        <p>Mij viel op dat het voor sommige klanten, vooral ouderen en mensen met drukke dagen, niet altijd makkelijk is om naar de winkel te komen. Met de bezorgservice wil ik ervoor zorgen dat iedereen van onze verse vis kan blijven genieten, ook als een bezoek aan de winkel even niet lukt.</p>
-      </div>
+    <ol class="tijdlijn" aria-label="Geschiedenis van de zaak">
+      <li><span class="tijdlijn-marker">1938</span><span>Meneer Schaap begint de zaak</span></li>
+      <li><span class="tijdlijn-marker">Jaren '70</span><span>Opa neemt over en houdt de naam</span></li>
+      <li><span class="tijdlijn-marker">Nu</span><span>Vader runt de zaak, de familie helpt mee</span></li>
+    </ol>
+    <figure class="pull-quote">
+      <h3>Waarom ik met bezorgen ben begonnen</h3>
+      <blockquote><p>Mij viel op dat het voor sommige klanten, vooral ouderen en mensen met drukke dagen, niet altijd makkelijk is om naar de winkel te komen. Met de bezorgservice wil ik ervoor zorgen dat iedereen van onze verse vis kan blijven genieten, ook als een bezoek aan de winkel even niet lukt.</p></blockquote>
+      <figcaption>Sem, bedenker van de bezorgservice</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- SOLUTION: het aanbod als antwoord op het probleem -->
+<section class="oplossing-sectie" id="aanbod">
+  <div class="container">
+    <h2>Uw vaste vis, gewoon thuisbezorgd</h2>
+    <p class="sectie-intro">Dezelfde vis als in de winkel. Kies hieronder wat u wilt, dan brengen wij het dinsdag bij u langs.</p>
+    <div class="producten-grid" id="uitgelicht-grid"></div>
+    <div class="sectie-cta">
+      <a href="producten.html" class="knop knop-secundair">Bekijk alle producten</a>
     </div>
   </div>
 </section>
 
-<section>
+<!-- PLAN: drie stappen -->
+<section class="plan-sectie">
   <div class="container">
-    <h2>Zo werkt bestellen</h2>
+    <h2>In drie stappen vis aan de deur</h2>
     <div class="stappen">
       <div class="stap">
         <div class="stap-nummer">1</div>
         <h3>Kies uw vis</h3>
-        <p>Blader door onze producten en voeg toe wat u wilt bestellen.</p>
+        <p>Online met een paar klikken, of bel ons en wij schrijven het voor u op.</p>
       </div>
       <div class="stap">
         <div class="stap-nummer">2</div>
-        <h3>Vul uw gegevens in</h3>
-        <p>Naam, adres en een moment waarop het u uitkomt. Klaar in twee minuten.</p>
+        <h3>Kies uw moment</h3>
+        <p>Dinsdagochtend (9:00 tot 12:00) of dinsdagmiddag (13:00 tot 17:00).</p>
       </div>
       <div class="stap">
         <div class="stap-nummer">3</div>
         <h3>Wij bezorgen</h3>
-        <p>Wij brengen uw bestelling vers bij u aan de deur. Betalen kan bij bezorging.</p>
+        <p>Wij brengen uw vis vers aan de deur. U betaalt pas als u de vis heeft.</p>
       </div>
+    </div>
+    <div class="sectie-cta">
+      <a href="producten.html" class="knop knop-primair knop-groot-auto">Bestel voor dinsdag</a>
     </div>
   </div>
 </section>
 
-<section class="aanbod-sectie">
+<!-- AGREEMENT: concrete beloftes -->
+<section class="belofte-sectie">
   <div class="container">
-    <h2>Wat u krijgt</h2>
-    <ul class="aanbod-lijst">
-      <li>Gratis thuisbezorgd, elke dinsdag</li>
-      <li>Ochtend- of middagblok naar keuze</li>
-      <li>Altijd vers, rechtstreeks van de vishandel</li>
-      <li>Ook telefonisch te bestellen</li>
-      <li>Betalen kan gewoon bij bezorging</li>
+    <h2>Dit beloven wij u</h2>
+    <ul class="belofte-grid">
+      <li><strong>Gratis bezorgd</strong><span>Elke dinsdag, zonder bezorgkosten.</span></li>
+      <li><strong>U kiest het moment</strong><span>Ochtend of middag, wat u het beste uitkomt.</span></li>
+      <li><strong>Vers uit onze toonbank</strong><span>Dezelfde vis die in de winkel ligt.</span></li>
+      <li><strong>Betalen aan de deur</strong><span>Pas als uw vis er is. Geen app, geen account.</span></li>
+      <li><strong>Bellen mag altijd</strong><span>Geen internet? Bel 06 42900227, wij regelen het.</span></li>
+      <li><strong>Iets niet goed?</strong><span>Eén telefoontje is genoeg, dan lossen wij het op.</span></li>
     </ul>
-    <div class="aanbod-cta">
-      <a href="producten.html" class="knop knop-primair knop-groot" style="width:auto;">Bekijk de producten</a>
-    </div>
   </div>
 </section>
 
-<section class="testimonials-sectie">
+<!-- PROOF: sociaal bewijs -->
+<section class="bewijs-sectie">
   <div class="container">
-    <h2>Wat klanten zeggen</h2>
-    <div class="testimonials-grid">
-      <div class="pull-quote">
-        <p>"[vul hier een echte reactie van een klant in]"</p>
-        <p class="testimonial-naam">[naam klant]</p>
+    <h2>Al generaties vertrouwd in Leiden</h2>
+    <div class="cijfers">
+      <div class="cijfer"><strong>1938</strong><span>opgericht aan de Herenstraat</span></div>
+      <div class="cijfer"><strong>3</strong><span>generaties familiebedrijf</span></div>
+      <div class="cijfer"><strong>70+</strong><span>jaar komen sommige klanten al bij ons</span></div>
+    </div>
+    <div id="klantreacties" class="klantreacties" hidden>
+      <h3>Wat klanten zeggen</h3>
+      <div class="testimonials-grid"></div>
+    </div>
+    <p class="bewijs-links">
+      <a href="https://www.omroepwest.nl/nieuws/3506827/schaaps-vishandel-uit-leiden-zoekt-lekkerbekken-met-verhalen-en-fotos" target="_blank" rel="noopener">Omroep West over Schaap's Vishandel</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://www.instagram.com/schaapsvishandel/" target="_blank" rel="noopener">Volg ons op Instagram</a>
+    </p>
+  </div>
+</section>
+
+<!-- TRANSFORMATION: voor en na -->
+<section class="transformatie-sectie">
+  <div class="container">
+    <h2>Wat verandert er voor u?</h2>
+    <div class="voor-na">
+      <div class="voor-na-kolom voor">
+        <h3>Zonder bezorgservice</h3>
+        <ul>
+          <li>U wacht tot iemand tijd heeft om vis voor u te halen.</li>
+          <li>Verse vis staat steeds minder vaak op het menu.</li>
+          <li>En als dat zo blijft? Dan mist u straks de vis die u al jaren eet.</li>
+        </ul>
       </div>
-      <div class="pull-quote">
-        <p>"[vul hier een echte reactie van een klant in]"</p>
-        <p class="testimonial-naam">[naam klant]</p>
+      <div class="voor-na-kolom na">
+        <h3>Met Schaap's Vis aan huis</h3>
+        <ul>
+          <li>Elke dinsdag verse vis aan de deur, op het moment dat u kiest.</li>
+          <li>U bestelt zelf, zonder iemand iets te hoeven vragen.</li>
+          <li>Uw vertrouwde zalm en kibbeling, van dezelfde vishandel als altijd.</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="trust-balk">
+<!-- VIDEO: verschijnt vanzelf zodra er een YouTube-code in de instellingen staat -->
+<section class="video-sectie" id="video-sectie" hidden>
   <div class="container">
-    <div class="trust-lijst">
-      <div class="trust-item">Sinds 1938</div>
-      <div class="trust-item">Drie generaties Schaap's Vis</div>
-      <div class="trust-item">Klanten die al meer dan 70 jaar terugkomen</div>
+    <h2>Zo werkt het, in één minuut</h2>
+    <p class="sectie-intro">Bekijk hoe u bestelt en hoe wij uw vis bij u thuis brengen.</p>
+    <div class="video-omslag"></div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION: direct en transitional -->
+<section class="cta-sectie" id="bestellen">
+  <div class="container">
+    <h2>Zin in verse vis op dinsdag?</h2>
+    <p class="cta-sub">Bestel online of bel ons. U betaalt pas als de vis bij u is.</p>
+    <div class="cta-knoppen">
+      <a href="producten.html" class="knop knop-primair knop-hero">Bestel voor dinsdag</a>
+      <a href="tel:+31642900227" class="knop knop-licht">Bel 06 42900227</a>
+    </div>
+    <div class="weekaanbod">
+      <h3>Nog even niet? Ontvang elke maandag ons weekaanbod</h3>
+      <p>Eén mail per week met wat er vers binnen is, zodat u op tijd kunt bestellen.</p>
+      <form id="weekaanbod-form" class="weekaanbod-form" novalidate>
+        <label for="weekaanbod-email">Uw e-mailadres</label>
+        <div class="weekaanbod-rij">
+          <input type="email" id="weekaanbod-email" name="email" required autocomplete="email" placeholder="naam@voorbeeld.nl">
+          <button type="submit" class="knop knop-primair">Aanmelden</button>
+        </div>
+        <p class="form-klein">Afmelden kan altijd. Wij delen uw e-mailadres met niemand.</p>
+        <p class="form-melding" role="status"></p>
+      </form>
     </div>
   </div>
 </section>
 
-<section class="gebied-strook">
-  <div class="container">
-    <h2>Ook voor onze vaste klanten die liever thuis blijven</h2>
-    <p>Kunt u moeilijker naar de winkel komen? Bel ons gerust, dan nemen wij uw bestelling telefonisch op en bezorgen wij deze net zo goed. Heeft u een vraag, of ging er iets mis met een bestelling? Bel ons op <a href="tel:+31642900227">06 42900227</a>, wij helpen u graag.</p>
-  </div>
-</section>
+</main>
 
-<section>
+<div id="bestel-balk" class="bestel-balk" hidden>
   <div class="container">
-    <h2>Zo werkt onze bezorgservice</h2>
-    <p class="sectie-intro">Bekijk in een korte video hoe eenvoudig bestellen en bezorgen bij Schaap's Vis werkt.</p>
-    <div class="video-omslag">
-      <p class="placeholder-tekst">Video volgt binnenkort. Bel gerust als u alvast vragen heeft.</p>
-      <!-- Zodra de video klaar staat op YouTube, vervang bovenstaande <p> door:
-      <iframe src="https://www.youtube.com/embed/JOUW-VIDEO-ID" title="Uitlegvideo Schaap's Vis" allowfullscreen></iframe>
-      -->
-    </div>
+    <span class="bestel-balk-tekst"></span>
+    <a href="bestellen.html" class="knop knop-primair">Bestelling afronden</a>
   </div>
-</section>
+</div>
 
 <footer class="hoofd-footer">
   <div class="container footer-grid">
     <div>
-      <h4>Schaap's Vis</h4>
-      <p>Uw vertrouwde viszaak, nu ook gratis aan huis bezorgd.</p>
+      <h2 class="footer-kop">Schaap's Vis</h2>
+      <p>Uw vertrouwde vishandel in Leiden, nu ook gratis aan huis bezorgd.</p>
+      <p>Herenstraat 48<br>2313 AL Leiden</p>
     </div>
     <div>
-      <h4>Contact</h4>
-      <p>📞 <a href="tel:+31642900227">06 42900227</a></p>
-      <p>✉️ <a href="mailto:bestellingen@schaapsvis.nl">bestellingen@schaapsvis.nl</a></p>
+      <h2 class="footer-kop">Contact</h2>
+      <p>Telefoon: <a href="tel:+31642900227">06 42900227</a></p>
+      <p><a href="https://www.instagram.com/schaapsvishandel/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/schaapsvishandel/" target="_blank" rel="noopener">Facebook</a></p>
     </div>
     <div>
-      <h4>Openingstijden</h4>
-      <p>Dinsdag t/m vrijdag: 09:00 – 18:00<br>Zaterdag: 09:00 – 17:00</p>
+      <h2 class="footer-kop">Openingstijden winkel</h2>
+      <p>Dinsdag tot en met vrijdag: 9:00 tot 18:00<br>Zaterdag: 9:00 tot 17:00<br>Bezorgen: elke dinsdag</p>
     </div>
   </div>
   <div class="container footer-cta">
-    <a href="producten.html" class="knop knop-primair knop-groot" style="width:auto;">Bekijk de producten</a>
+    <a href="producten.html" class="knop knop-primair">Bestel voor dinsdag</a>
   </div>
-  <p class="copyright">&copy; 2026 Schaap's Vis. Alle prijzen zijn onder voorbehoud.</p>
+  <p class="copyright">&copy; 2026 Schaap's Vis · <a href="privacy.html">Privacy</a> · Prijzen onder voorbehoud</p>
 </footer>
 
+<script src="js/instellingen.js"></script>
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/site.js"></script>
 <script src="js/faq-chat.js"></script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
