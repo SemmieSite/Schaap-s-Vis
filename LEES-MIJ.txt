@@ -1,1 +1,10 @@
-Productfoto's: zalm.jpg, kibbeling.jpg, makreel.jpg, garnalen.jpg, mosselen.jpg, haring.jpg, lekkerbek.jpg, soep.jpg
+Eigen foto's: gewoon los uploaden via Add file > Upload files, geen mappen nodig.
+Gebruik precies deze namen:
+
+foto-hero.jpg       grote foto bovenaan de homepage
+foto-team.jpg       foto van de familie of het team
+foto-zalm.jpg, foto-kibbeling.jpg, foto-makreel.jpg, foto-garnalen.jpg,
+foto-mosselen.jpg, foto-haring.jpg, foto-lekkerbek.jpg, foto-soep.jpg
+
+Liefst liggend formaat, niet groter dan 1 MB per foto.
+Staat er geen foto, dan toont de site vanzelf een tekening of icoon.

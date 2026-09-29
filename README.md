@@ -8,21 +8,22 @@ gids (over ons), oplossing, plan, beloftes, bewijs, voor/na, call to action en f
 
 ## Snel aanpassen, zonder code
 
-Alles wat je vaak wilt veranderen staat in **`js/instellingen.js`**. Op GitHub: open het
+Alles wat je vaak wilt veranderen staat in **`instellingen.js`**. Op GitHub: open het
 bestand, klik op het potlood, pas aan, klik op *Commit changes*. Vercel zet het vanzelf live.
 
-| Wat | Waar in `js/instellingen.js` | Zolang het leeg is |
+| Wat | Waar in `instellingen.js` | Zolang het leeg is |
 |---|---|---|
 | Echte klantreacties | `klantreacties` | sectie "Wat klanten zeggen" blijft verborgen |
 | Uitlegvideo (YouTube) | `videoYoutubeId` | videosectie blijft verborgen |
 | Bestellingen en aanmeldingen direct binnen | `formulierUrl` (Formspree-link) | site opent het e-mailprogramma van de klant |
 
-**Foto's** (verschijnen vanzelf zodra ze er staan, anders toont de site een tekening of icoon):
+**Foto's** (gewoon los uploaden in de hoofdmap, geen mappen nodig; ze verschijnen vanzelf,
+anders toont de site een tekening of icoon):
 
-- `img/hero.jpg` grote foto bovenaan (bijvoorbeeld de toonbank of een bezorgtas aan de deur)
-- `img/team-foto.jpg` foto van de familie of het team in de winkel
-- `img/producten/zalm.jpg`, `kibbeling.jpg`, `makreel.jpg`, `garnalen.jpg`, `mosselen.jpg`,
-  `haring.jpg`, `lekkerbek.jpg`, `soep.jpg`
+- `foto-hero.jpg` grote foto bovenaan (bijvoorbeeld de toonbank of een bezorgtas aan de deur)
+- `foto-team.jpg` foto van de familie of het team in de winkel
+- `foto-zalm.jpg`, `foto-kibbeling.jpg`, `foto-makreel.jpg`, `foto-garnalen.jpg`,
+  `foto-mosselen.jpg`, `foto-haring.jpg`, `foto-lekkerbek.jpg`, `foto-soep.jpg`
 
 **Bezoekersstatistieken:** in Vercel bij het project op *Analytics* > *Enable* klikken. Het
 script staat al in alle pagina's (`/_vercel/insights/script.js`). Zo zie je hoeveel mensen
@@ -38,12 +39,15 @@ bestellen.html      Bestelformulier (naam, adres, bezorgmoment) + overzicht
 bedankt.html        Bevestigingspagina na het bestellen
 contact.html        Contactgegevens en telefonisch bestellen
 privacy.html        Korte privacyverklaring
-css/style.css       Alle opmaak
-js/instellingen.js  Klantreacties, video, formulierdienst (hier pas je dingen aan)
-js/products.js      Producten, prijzen (voorbeeldprijzen) en productkaarten
-js/cart.js          Winkelwagen-logica (localStorage)
-js/site.js          Tekstgrootte, foto's, klantreacties, video, bestelbalk, weekaanbod
-js/faq-chat.js      Veelgestelde vragen als klikbare knoppen
+style.css           Alle opmaak
+instellingen.js     Klantreacties, video, formulierdienst (hier pas je dingen aan)
+products.js         Producten, prijzen (voorbeeldprijzen) en productkaarten
+cart.js             Winkelwagen-logica (localStorage)
+site.js             Tekstgrootte, foto's, klantreacties, video, bestelbalk, weekaanbod
+faq-chat.js         Veelgestelde vragen als klikbare knoppen
+
+Alles staat bewust los in de hoofdmap: zo kan uploaden via GitHub nooit mis gaan.
+De oude mappen css/ en js/ worden niet meer gebruikt.
 ```
 
 ## Lokaal bekijken
@@ -60,14 +64,14 @@ en open `http://localhost:8000` in de browser.
 
 Dit is een MVP, bewust simpel gehouden. Voor een echt werkende versie nog nodig:
 
-- **Bestellingen:** met een Formspree-link in `js/instellingen.js` komen bestellingen en
+- **Bestellingen:** met een Formspree-link in `instellingen.js` komen bestellingen en
   aanmeldingen direct binnen (en zie je ze terug in het Formspree-overzicht). Zonder link
   opent het e-mailprogramma van de klant met alles al ingevuld. Check dat het adres in
-  `bestelEmail` echt bestaat.
+  `bestelEmail` (in `instellingen.js`) echt bestaat.
 - **Betalen** gebeurt nog bij bezorging. Online betalen (bijvoorbeeld iDEAL) kan later
   toegevoegd worden.
-- **Productfoto's**: zolang er geen foto's in `img/producten/` staan, toont de site iconen.
-- **Prijzen en producten** in `js/products.js` zijn voorbeeldprijzen: check ze met de winkel.
+- **Productfoto's**: zolang er geen `foto-...jpg`-bestanden staan, toont de site iconen.
+- **Prijzen en producten** in `products.js` zijn voorbeeldprijzen: check ze met de winkel.
 
 ## Hosting
 
