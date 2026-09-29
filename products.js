@@ -6,7 +6,7 @@
 
 const PRODUCTEN = [
   { id: "zalm", naam: "Biologische zalmfilet", eenheid: "per 500 gram", prijs: 12.95, icoon: "vis", uitgelicht: true, omschrijving: "Van Vårlaks uit Noord-Noorwegen" },
-  { id: "kibbeling", naam: "Glutenvrije kibbeling", eenheid: "per 250 gram", prijs: 7.50, icoon: "kibbeling", uitgelicht: true, omschrijving: "Een van onze specialiteiten" },
+  { id: "kibbeling", naam: "Kibbeling", eenheid: "per 250 gram", prijs: 7.50, icoon: "kibbeling", uitgelicht: true, omschrijving: "Een van onze specialiteiten" },
   { id: "makreel", naam: "Gerookte makreel", eenheid: "per stuk", prijs: 4.25, icoon: "vis", uitgelicht: true, omschrijving: "Lekker op brood of in een salade" },
   { id: "garnalen", naam: "Gepelde garnalen", eenheid: "per 250 gram", prijs: 9.95, icoon: "garnaal", uitgelicht: true, omschrijving: "Klaar om te eten" },
   { id: "mosselen", naam: "Verse mosselen", eenheid: "per kilo", prijs: 5.50, icoon: "mossel" },

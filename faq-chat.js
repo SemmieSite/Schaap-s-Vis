@@ -13,7 +13,7 @@ const FAQ_ITEMS = [
   },
   {
     vraag: "Hoe bestel ik?",
-    antwoord: "Kies uw vis bij Producten en rond de bestelling af. Liever bellen? Bel 06 42900227, dan noteren wij het voor u."
+    antwoord: "Kies uw vis op de homepage en rond onderaan de pagina uw bestelling af. Liever bellen? Bel 06 42900227, dan noteren wij het voor u."
   },
   {
     vraag: "Kan ik bestellen voor iemand anders?",
@@ -25,7 +25,7 @@ const FAQ_ITEMS = [
   },
   {
     vraag: "Wat verkopen jullie?",
-    antwoord: "Wij verkopen onder andere zalm, garnalen, biologische zalm en glutenvrije kibbeling. Bekijk het volledige aanbod bij Producten."
+    antwoord: "Wij verkopen onder andere zalm, garnalen, biologische zalm en kibbeling. Bekijk het volledige aanbod bij Producten."
   },
   {
     vraag: "Waar komt jullie biologische zalm vandaan?",

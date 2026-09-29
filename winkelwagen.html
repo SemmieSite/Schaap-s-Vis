@@ -27,10 +27,10 @@
     </a>
     <nav class="hoofdmenu" aria-label="Hoofdmenu">
       <ul>
-        <li><a href="producten.html">Producten</a></li>
+        <li><a href="index.html#aanbod">Producten</a></li>
         <li><a href="index.html#over-ons">Over ons</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li class="winkelwagen-item"><a href="winkelwagen.html" class="winkelwagen-link">Winkelwagen <span id="cart-badge">0</span></a></li>
+        <li class="winkelwagen-item"><a href="index.html#bestellen" class="winkelwagen-link">Mijn bestelling <span id="cart-badge">0</span></a></li>
       </ul>
     </nav>
     <div class="header-acties">
@@ -40,7 +40,7 @@
         <button type="button" data-grootte="groot" aria-label="Grote tekst">A+</button>
         <button type="button" data-grootte="extra-groot" aria-label="Extra grote tekst">A++</button>
       </div>
-      <a href="producten.html" class="knop knop-primair knop-header"><span class="tekst-lang">Bestel voor dinsdag</span><span class="tekst-kort">Bestellen</span></a>
+      <a href="index.html#aanbod" class="knop knop-primair knop-header"><span class="tekst-lang">Bestel voor dinsdag</span><span class="tekst-kort">Bestellen</span></a>
     </div>
   </div>
 </header>
@@ -74,7 +74,7 @@
     </div>
   </div>
   <div class="container footer-cta">
-    <a href="producten.html" class="knop knop-primair">Bestel voor dinsdag</a>
+    <a href="index.html#aanbod" class="knop knop-primair">Bestel voor dinsdag</a>
   </div>
   <p class="copyright">&copy; 2026 Schaap's Vis · <a href="privacy.html">Privacy</a> · Prijzen onder voorbehoud</p>
 </footer>
@@ -95,7 +95,7 @@
       container.innerHTML = `
         <div class="winkelwagen-leeg">
           <p>Uw winkelwagen is nog leeg.</p>
-          <a href="producten.html" class="knop knop-primair">Bekijk de producten</a>
+          <a href="index.html#aanbod" class="knop knop-primair">Kies uw vis</a>
         </div>
       `;
       return;
@@ -131,8 +131,8 @@
         <span>${formatPrijs(winkelwagenTotaalPrijs())}</span>
       </div>
       <div class="winkelwagen-acties">
-        <a href="producten.html" class="knop knop-secundair">Verder winkelen</a>
-        <a href="bestellen.html" class="knop knop-primair knop-groot" style="width:auto;">Verder naar bestellen</a>
+        <a href="index.html#aanbod" class="knop knop-secundair">Verder winkelen</a>
+        <a href="index.html#bestellen" class="knop knop-primair knop-groot" style="width:auto;">Verder naar bestellen</a>
       </div>
     `;
 

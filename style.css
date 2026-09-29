@@ -2103,3 +2103,149 @@ html.wagen-gevuld .knop-header {
     display: inline;
   }
 }
+
+/* ---------- Bestellen op de homepage ---------- */
+
+.bestel-kaart {
+  background: var(--kleur-wit);
+  color: var(--kleur-tekst);
+  border-radius: 14px;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto 0;
+  text-align: left;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.bestel-kaart a:not(.knop) {
+  color: var(--kleur-zee-donker);
+}
+
+.bestel-leeg {
+  text-align: center;
+}
+
+.bestel-leeg-tekst {
+  font-size: 1.15rem;
+  margin: 0 0 1.25rem;
+}
+
+.formulier-plat {
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+.bestel-kop {
+  margin: 0 0 1rem;
+  color: var(--kleur-donker);
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+.bestel-kaart .knop-groot {
+  margin-top: 1.5rem;
+}
+
+.bestel-kaart .overzicht-blok {
+  background: var(--kleur-tegel);
+  border: none;
+}
+
+#home-overzicht-regels .overzicht-regel {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.aantal-kiezer.klein {
+  display: inline-flex;
+  background: var(--kleur-wit);
+}
+
+.aantal-kiezer.klein button {
+  width: 2.1rem;
+  height: 2.1rem;
+  font-size: 1.1rem;
+}
+
+.regel-aantal {
+  min-width: 1.8rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.regel-prijs {
+  min-width: 4.8rem;
+  text-align: right;
+  font-weight: 600;
+}
+
+.bestel-bevestiging {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.bestel-bevestiging p {
+  margin: 0 0 0.9rem;
+}
+
+#overige-grid {
+  margin-top: 1.5rem;
+}
+
+body.bij-bestellen .bestel-balk {
+  display: none !important;
+}
+
+@media (max-width: 850px) {
+  .bestel-kaart {
+    padding: 1.25rem;
+  }
+  .bestel-kaart .overzicht-blok {
+    order: -1;
+    position: static;
+  }
+}
+
+/* Keuze bezorgmoment: rondje netjes naast de tekst (ook binnen .formulier-blok) */
+.formulier-blok .bezorgmoment-optie {
+  display: flex;
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .bestel-kaart .overzicht-blok {
+    padding: 1.1rem;
+  }
+  #home-overzicht-regels .overzicht-regel {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "naam naam" "kiezer prijs";
+    row-gap: 0.4rem;
+  }
+  #home-overzicht-regels .regel-naam {
+    grid-area: naam;
+    font-weight: 600;
+  }
+  #home-overzicht-regels .aantal-kiezer {
+    grid-area: kiezer;
+    justify-self: start;
+  }
+  #home-overzicht-regels .regel-prijs {
+    grid-area: prijs;
+  }
+}
+
+/* Op de telefoon alleen het icoon, zodat de knop minder in de weg zit */
+@media (max-width: 640px) {
+  .faq-chat-knop {
+    width: 3.25rem;
+    padding: 0;
+    justify-content: center;
+  }
+  .faq-chat-knop .faq-chat-label {
+    display: none;
+  }
+}
