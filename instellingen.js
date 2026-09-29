@@ -24,7 +24,7 @@ const INSTELLINGEN = {
 
   // YouTube-video. Plak alleen de code uit de link.
   // Voorbeeld: bij https://www.youtube.com/watch?v=AbC123xYz
-  // vul je "AbC123xYz" in. Leeg laten = de videosectie blijft verborgen.
+  // vul je "AbC123xYz" in. Leeg laten = de eigen uitlegvideo (uitleg.html) blijft staan.
   videoYoutubeId: "",
 
   // Echte klantreacties. Alleen echte reacties invullen, met

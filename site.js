@@ -76,21 +76,19 @@ function toonKlantreacties() {
   blok.hidden = false;
 }
 
-/* ---------- Video (alleen als er een YouTube-code is ingevuld) ---------- */
+/* ---------- Video: eigen uitlegvideo, of YouTube als die is ingevuld ---------- */
 
 function toonVideo() {
   const sectie = document.getElementById("video-sectie");
   const id = (INST.videoYoutubeId || "").trim();
   if (!sectie || !id) return;
-  const omslag = sectie.querySelector(".video-omslag");
-  const frame = document.createElement("iframe");
+  const frame = sectie.querySelector(".video-omslag iframe");
+  if (!frame) return;
   frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
   frame.title = "Uitlegvideo bezorgservice Schaap's Vis";
   frame.allow = "accelerometer; encrypted-media; picture-in-picture";
-  frame.allowFullscreen = true;
-  frame.loading = "lazy";
-  omslag.appendChild(frame);
-  sectie.hidden = false;
+  const link = sectie.querySelector(".video-link");
+  if (link) link.remove();
 }
 
 /* ---------- Bestelbalk onderin (zodra er iets in de winkelwagen zit) ---------- */

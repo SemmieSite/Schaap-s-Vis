@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uitlegvideo | Schaap's Vis</title>
+<meta name="description" content="In één minuut: waarom Schaap's Vis bezorgt, hoe het werkt en wie wij zijn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --donker: #0b2545; --zee: #0b6e6e; --zee-donker: #084f4f; --accent: #9c6210; --tegel: #eef3f2; --wit: #fff; --rand: #d8d2c4; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--donker); overflow: hidden; font-family: "Public Sans", Arial, sans-serif; }
+  .omlijsting { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .podium { position: relative; width: 1280px; height: 720px; background: var(--tegel); overflow: hidden; transform-origin: center center; flex-shrink: 0; }
+  .scene { position: absolute; inset: 0; opacity: 0; }
+  .anim { opacity: 0; will-change: opacity, transform; }
+  h1, h2, .kop { font-family: "Bitter", Georgia, serif; font-weight: 700; margin: 0; color: var(--donker); }
+  .donker-vlak { position: absolute; inset: 0; background: linear-gradient(135deg, var(--zee), var(--zee-donker)); }
+  /* ondertitels */
+  .ondertitel { position: absolute; left: 90px; right: 90px; bottom: 58px; min-height: 104px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 34px; line-height: 1.3; font-weight: 700; color: var(--wit); background: rgba(11, 37, 69, 0.92); border-radius: 18px; padding: 18px 34px; }
+  /* voortgang */
+  .voortgang { position: absolute; left: 0; right: 0; bottom: 0; height: 10px; background: rgba(11, 37, 69, 0.15); }
+  .voortgang span { display: block; height: 100%; width: 0; background: var(--accent); }
+  /* titelkaart */
+  .titel { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; color: var(--wit); text-align: center; padding-bottom: 150px; }
+  .titel h1 { color: var(--wit); font-size: 92px; }
+  .titel p { margin: 0; font-size: 40px; font-weight: 600; }
+  .titel .label { font-size: 26px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #f0c27a; }
+  /* kaarten */
+  .kaarten { position: absolute; left: 110px; right: 110px; top: 56px; display: flex; gap: 36px; justify-content: center; align-items: flex-start; }
+  .kaart { flex: 1; background: var(--wit); border-radius: 22px; padding: 30px 30px 34px; text-align: center; border: 2px solid var(--rand); }
+  .kaart svg { width: 96px; height: 96px; color: var(--accent); }
+  .kaart .kop { font-size: 36px; margin-top: 14px; line-height: 1.2; }
+  .kaart p { font-size: 26px; margin: 10px 0 0; color: #333; }
+  .stap-nr { display: inline-flex; width: 62px; height: 62px; border-radius: 50%; background: var(--accent); color: var(--wit); font-size: 38px; font-weight: 700; align-items: center; justify-content: center; }
+  .stap svg { color: var(--zee); width: 80px; height: 80px; display: block; margin: 12px auto 0; }
+  /* tijdlijn */
+  .tijdlijn { position: absolute; left: 150px; right: 150px; top: 250px; display: flex; justify-content: space-between; }
+  .tijdlijn::before { content: ""; position: absolute; left: 60px; right: 60px; top: 38px; height: 4px; background: var(--rand); }
+  .punt { position: relative; text-align: center; width: 300px; }
+  .punt b { display: inline-block; background: var(--zee); color: var(--wit); font-size: 34px; padding: 14px 30px; border-radius: 999px; }
+  .punt span { display: block; margin-top: 18px; font-size: 28px; font-weight: 600; color: var(--donker); }
+  .wie-kop { position: absolute; left: 0; right: 0; top: 96px; text-align: center; font-size: 56px; }
+  /* afsluiter */
+  .knop-nep { display: inline-block; background: var(--accent); color: var(--wit); font-size: 44px; font-weight: 700; padding: 26px 56px; border-radius: 14px; box-shadow: 0 10px 26px rgba(0,0,0,.25); }
+  .klein-wit { color: var(--wit); font-size: 34px; font-weight: 600; margin: 0; }
+  /* bediening (niet in de opname) */
+  .bediening { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(11, 37, 69, 0.55); border: 0; cursor: pointer; font-family: inherit; }
+  .bediening span { display: inline-flex; align-items: center; gap: 22px; background: var(--accent); color: var(--wit); font-size: 44px; font-weight: 700; padding: 28px 52px; border-radius: 999px; box-shadow: 0 10px 26px rgba(0,0,0,.3); }
+  .bediening svg { width: 44px; height: 44px; }
+  .bediening[hidden] { display: none; }
+  .pauze { position: absolute; top: 24px; right: 24px; width: 78px; height: 78px; border-radius: 50%; border: 0; background: rgba(11, 37, 69, 0.8); color: var(--wit); cursor: pointer; display: none; align-items: center; justify-content: center; }
+  .pauze svg { width: 34px; height: 34px; }
+  .speelt .pauze { display: flex; }
+  .opname .bediening, .opname .pauze { display: none !important; }
+</style>
+</head>
+<body>
+<div class="omlijsting">
+<div class="podium" id="podium">
+
+  <!-- 1. Titel -->
+  <div class="scene" data-in="0" data-out="7.6">
+    <div class="donker-vlak"></div>
+    <div class="titel">
+      <svg class="anim" data-in="0.3" width="170" height="170" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#ffffff" fill-opacity=".14"/><path d="M8.5 24c6.5-8.5 17.5-8.5 24 0-6.5 8.5-17.5 8.5-24 0z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><path d="M32.5 24l8-6v12l-8-6z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><circle cx="15.5" cy="22.2" r="1.7" fill="#fff"/></svg>
+      <p class="label anim" data-in="0.8">Nieuw: bezorgen aan huis</p>
+      <h1 class="anim" data-in="1.2">Schaap's Vis</h1>
+      <p class="anim" data-in="2.0">Verse vis, zonder de deur uit te hoeven</p>
+    </div>
+  </div>
+
+  <!-- 2. Waarom: de winkel is te ver -->
+  <div class="scene" data-in="7.6" data-out="18.2">
+    <svg id="kaart-svg" width="1280" height="720" viewBox="0 0 1280 720" aria-hidden="true">
+      <rect x="0" y="470" width="1280" height="250" fill="#dfe8e6"/>
+      <g class="anim" data-in="7.9">
+        <rect x="120" y="250" width="250" height="220" rx="6" fill="#0b2545"/>
+        <path d="M105 250h280l-18 50H123z" fill="#0b6e6e"/>
+        <path d="M150 250l-10 50M200 250l-6 50M250 250v50M300 250l6 50M350 250l10 50" stroke="#ffffff" stroke-opacity=".5" stroke-width="10"/>
+        <rect x="150" y="330" width="120" height="90" rx="6" fill="#bfe3e3"/>
+        <path d="M178 375c9-12 27-12 36 0-9 12-27 12-36 0z" fill="none" stroke="#0b2545" stroke-width="4"/>
+        <path d="M214 375l12-8v16z" fill="none" stroke="#0b2545" stroke-width="4" stroke-linejoin="round"/>
+        <rect x="290" y="340" width="60" height="130" rx="4" fill="#9c6210"/>
+        <rect x="135" y="205" width="220" height="40" rx="8" fill="#ffffff"/>
+        <text x="245" y="233" text-anchor="middle" font-family="Bitter, Georgia, serif" font-weight="700" font-size="24" fill="#0b2545">Schaap's Vis</text>
+      </g>
+      <g class="anim" data-in="8.6">
+        <path d="M930 300l110-80 110 80z" fill="#9c6210"/>
+        <rect x="945" y="298" width="190" height="172" fill="#f4efe6"/>
+        <rect x="1060" y="360" width="50" height="110" rx="3" fill="#0b2545"/>
+        <rect x="970" y="330" width="70" height="60" rx="4" fill="#bfe3e3"/>
+        <circle cx="1005" cy="352" r="11" fill="#0b2545" class="anim" data-in="9.6"/>
+        <path d="M987 390c0-14 8-22 18-22s18 8 18 22z" fill="#0b2545" class="anim" data-in="9.6"/>
+      </g>
+      <path id="route" d="M330 475 C 520 600, 760 380, 1085 472" fill="none" stroke="#0b6e6e" stroke-width="7" stroke-dasharray="4 18" stroke-linecap="round" class="anim" data-in="10.2"/>
+      <g class="regen" data-in="11" data-out="18.2">
+        <line x1="450" y1="0" x2="440" y2="26" stroke="#0b6e6e" stroke-width="4" stroke-linecap="round" class="druppel" data-x="450" data-v="520" data-f="0"/>
+        <line x1="560" y1="0" x2="550" y2="26" stroke="#0b6e6e" stroke-width="4" stroke-linecap="round" class="druppel" data-x="560" data-v="560" data-f="0.35"/>
+        <line x1="680" y1="0" x2="670" y2="26" stroke="#0b6e6e" stroke-width="4" stroke-linecap="round" class="druppel" data-x="680" data-v="500" data-f="0.7"/>
+        <line x1="790" y1="0" x2="780" y2="26" stroke="#0b6e6e" stroke-width="4" stroke-linecap="round" class="druppel" data-x="790" data-v="540" data-f="0.15"/>
+        <line x1="620" y1="0" x2="610" y2="26" stroke="#0b6e6e" stroke-width="4" stroke-linecap="round" class="druppel" data-x="620" data-v="580" data-f="0.5"/>
+        <line x1="860" y1="0" x2="850" y2="26" stroke="#0b6e6e" stroke-width="4" stroke-linecap="round" class="druppel" data-x="860" data-v="510" data-f="0.85"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- 3. Het gevoel -->
+  <div class="scene" data-in="18.2" data-out="28.2">
+    <div class="kaarten">
+      <div class="kaart anim" data-in="18.6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>
+        <div class="kop">Steeds iemand vragen?</div>
+        <p>Je wilt je kinderen of buren niet lastigvallen.</p>
+      </div>
+      <div class="kaart anim" data-in="21.8">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        <div class="kop">Een ingewikkelde app?</div>
+        <p>Wachtwoorden, stappen en een bezorger die je niet kent.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Wat: wij bezorgen -->
+  <div class="scene" data-in="28.2" data-out="39.6">
+    <svg width="1280" height="720" viewBox="0 0 1280 720" aria-hidden="true">
+      <rect x="0" y="470" width="1280" height="250" fill="#dfe8e6"/>
+      <g>
+        <rect x="120" y="250" width="250" height="220" rx="6" fill="#0b2545"/>
+        <path d="M105 250h280l-18 50H123z" fill="#0b6e6e"/>
+        <path d="M150 250l-10 50M200 250l-6 50M250 250v50M300 250l6 50M350 250l10 50" stroke="#ffffff" stroke-opacity=".5" stroke-width="10"/>
+        <rect x="150" y="330" width="120" height="90" rx="6" fill="#bfe3e3"/>
+        <path d="M178 375c9-12 27-12 36 0-9 12-27 12-36 0z" fill="none" stroke="#0b2545" stroke-width="4"/>
+        <path d="M214 375l12-8v16z" fill="none" stroke="#0b2545" stroke-width="4" stroke-linejoin="round"/>
+        <rect x="290" y="340" width="60" height="130" rx="4" fill="#9c6210"/>
+        <rect x="135" y="205" width="220" height="40" rx="8" fill="#ffffff"/>
+        <text x="245" y="233" text-anchor="middle" font-family="Bitter, Georgia, serif" font-weight="700" font-size="24" fill="#0b2545">Schaap's Vis</text>
+      </g>
+      <g>
+        <path d="M930 300l110-80 110 80z" fill="#9c6210"/>
+        <rect x="945" y="298" width="190" height="172" fill="#f4efe6"/>
+        <rect x="1060" y="360" width="50" height="110" rx="3" fill="#0b2545"/>
+        <rect x="970" y="330" width="70" height="60" rx="4" fill="#bfe3e3"/>
+        <circle cx="1005" cy="352" r="11" fill="#0b2545"/>
+        <path d="M987 390c0-14 8-22 18-22s18 8 18 22z" fill="#0b2545"/>
+      </g>
+      <path id="route2" d="M330 475 C 520 600, 760 380, 1085 472" fill="none" stroke="#0b6e6e" stroke-width="7" stroke-dasharray="4 18" stroke-linecap="round"/>
+      <g class="reis" data-pad="route2" data-in="29.2" data-duur="5.2">
+        <path d="M-34 -30h68l6 58h-80z" fill="#c98a3c"/>
+        <path d="M-34 -30h68l-2 9h-64z" fill="#b57a31"/>
+        <path d="M-17 -30c0-22 34-22 34 0" fill="none" stroke="#7d4e0d" stroke-width="5" stroke-linecap="round"/>
+        <path d="M-15 2c6-8 17-8 23 0-6 8-17 8-23 0z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M8 2l8-6v12z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+      </g>
+      <g class="anim" data-in="34.6">
+        <rect x="905" y="150" width="190" height="56" rx="10" fill="#0b2545"/>
+        <text x="1000" y="187" text-anchor="middle" font-family="Public Sans, Arial, sans-serif" font-weight="700" font-size="28" fill="#ffffff">Dinsdag</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- 5. Hoe: drie stappen -->
+  <div class="scene" data-in="39.6" data-out="54.6">
+    <div class="kaarten">
+      <div class="kaart stap anim" data-in="40.0">
+        <span class="stap-nr">1</span>
+        <svg viewBox="0 0 48 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16c8-11 24-11 32 0-8 11-24 11-32 0z"/><path d="M35 16l10-8v16l-10-8z"/><circle cx="12" cy="13.5" r="1.4" fill="currentColor" stroke="none"/></svg>
+        <div class="kop">Kies uw vis</div>
+        <p>Online of gewoon aan de telefoon.</p>
+      </div>
+      <div class="kaart stap anim" data-in="44.4">
+        <span class="stap-nr">2</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        <div class="kop">Kies uw moment</div>
+        <p>Dinsdagochtend of dinsdagmiddag.</p>
+      </div>
+      <div class="kaart stap anim" data-in="48.8">
+        <span class="stap-nr">3</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        <div class="kop">Wij bezorgen</div>
+        <p>U betaalt pas aan de deur.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Wie: de familiezaak -->
+  <div class="scene" data-in="54.6" data-out="64.6">
+    <div class="kop wie-kop anim" data-in="55.0">Schaap's Vishandel, Leiden</div>
+    <div class="tijdlijn">
+      <div class="punt anim" data-in="56.0"><b>1938</b><span>Meneer Schaap begint aan de Herenstraat</span></div>
+      <div class="punt anim" data-in="57.4"><b>Jaren '70</b><span>Opa neemt over en houdt de naam</span></div>
+      <div class="punt anim" data-in="58.8"><b>Nu</b><span>De familie bezorgt ook aan huis</span></div>
+    </div>
+  </div>
+
+  <!-- 7. Afsluiter -->
+  <div class="scene" data-in="64.6" data-out="99">
+    <div class="donker-vlak"></div>
+    <div class="titel">
+      <p class="label anim" data-in="65.0">Elke dinsdag gratis bezorgd</p>
+      <span class="knop-nep anim" data-in="65.6">Bestel voor dinsdag</span>
+      <p class="klein-wit anim" data-in="66.4">schaap-s-vis.vercel.app</p>
+      <p class="klein-wit anim" data-in="67.0">of bel 06 42900227</p>
+    </div>
+  </div>
+
+  <!-- ondertitels -->
+  <div class="ondertitel anim" data-in="1.2" data-out="7.4">Schaap's Vishandel in Leiden bezorgt nu ook bij u thuis.</div>
+  <div class="ondertitel anim" data-in="8.2" data-out="12.9">Sommige klanten komen al zeventig jaar bij ons.</div>
+  <div class="ondertitel anim" data-in="13.1" data-out="18.0">Maar voor een deel van hen is de winkel nu te ver.</div>
+  <div class="ondertitel anim" data-in="18.8" data-out="28.0">Steeds iemand vragen of een ingewikkelde app gebruiken? Dat wil je niet.</div>
+  <div class="ondertitel anim" data-in="28.8" data-out="39.4">Daarom bezorgen wij. Elke dinsdag, gratis aan de deur.</div>
+  <div class="ondertitel anim" data-in="40.2" data-out="54.4">Zo werkt het: kies uw vis, kies ochtend of middag, en betaal pas als de vis er is.</div>
+  <div class="ondertitel anim" data-in="55.2" data-out="64.4">Drie generaties, dezelfde verse vis. Sinds 1938 aan de Herenstraat.</div>
+  <div class="ondertitel anim" data-in="65.4" data-out="99">Bestel via de site of bel ons. Wij brengen het dinsdag bij u thuis.</div>
+
+  <div class="voortgang"><span id="voortgang"></span></div>
+
+  <button type="button" class="bediening" id="start" aria-label="Uitlegvideo afspelen">
+    <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg><em style="font-style:normal" id="start-tekst">Bekijk de uitleg (1 minuut)</em></span>
+  </button>
+  <button type="button" class="pauze" id="pauze" aria-label="Pauzeren">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+  </button>
+</div>
+</div>
+
+<script>
+  const DUUR = 72;
+  const podium = document.getElementById("podium");
+  const opname = new URLSearchParams(location.search).has("opname");
+  if (opname) document.body.classList.add("opname");
+
+  const knijp = (x) => Math.max(0, Math.min(1, x));
+  const zacht = (x) => x * x * (3 - 2 * x);
+  const inUit = (el, t) => {
+    const a = parseFloat(el.dataset.in || "0");
+    const b = parseFloat(el.dataset.out || "999");
+    return Math.min(zacht(knijp((t - a) / 0.6)), zacht(knijp((b - t) / 0.4)));
+  };
+
+  const scenes = Array.from(podium.querySelectorAll(".scene"));
+  const animaties = Array.from(podium.querySelectorAll(".anim"));
+  const reizen = Array.from(podium.querySelectorAll(".reis"));
+  const regens = Array.from(podium.querySelectorAll(".regen"));
+
+  function teken(t) {
+    scenes.forEach((s) => { s.style.opacity = inUit(s, t); });
+    animaties.forEach((el) => {
+      const v = inUit(el, t);
+      el.style.opacity = v;
+      el.style.transform = `translateY(${(1 - v) * 24}px)`;
+    });
+    reizen.forEach((g) => {
+      const pad = document.getElementById(g.dataset.pad);
+      const p = zacht(knijp((t - parseFloat(g.dataset.in)) / parseFloat(g.dataset.duur)));
+      const punt = pad.getPointAtLength(p * pad.getTotalLength());
+      const hup = Math.abs(Math.sin(p * Math.PI * 6)) * 10 * (1 - p);
+      g.setAttribute("transform", `translate(${punt.x} ${punt.y - 34 - hup})`);
+    });
+    regens.forEach((r) => {
+      const zichtbaar = inUit(r, t);
+      r.style.opacity = zichtbaar;
+      r.querySelectorAll(".druppel").forEach((d) => {
+        const y = ((t * parseFloat(d.dataset.v) + parseFloat(d.dataset.f) * 470) % 470);
+        d.setAttribute("transform", `translate(0 ${y})`);
+      });
+    });
+    document.getElementById("voortgang").style.width = `${knijp(t / DUUR) * 100}%`;
+  }
+
+  function schaal() {
+    const f = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    podium.style.transform = `scale(${f})`;
+  }
+  window.addEventListener("resize", schaal);
+  schaal();
+
+  // Voor de opname (mp4) en om te testen
+  window.__teken = teken;
+  window.__DUUR = DUUR;
+
+  let begin = null, gepauzeerdOp = 0, loopt = false;
+  function stap(nu) {
+    if (!loopt) return;
+    const t = (nu - begin) / 1000;
+    teken(Math.min(t, DUUR));
+    if (t >= DUUR) {
+      loopt = false;
+      podium.classList.remove("speelt");
+      document.getElementById("start-tekst").textContent = "Nog een keer bekijken";
+      document.getElementById("start").hidden = false;
+      gepauzeerdOp = 0;
+      return;
+    }
+    requestAnimationFrame(stap);
+  }
+  function speel() {
+    document.getElementById("start").hidden = true;
+    podium.classList.add("speelt");
+    begin = performance.now() - gepauzeerdOp * 1000;
+    loopt = true;
+    requestAnimationFrame(stap);
+  }
+  document.getElementById("start").addEventListener("click", speel);
+  document.getElementById("pauze").addEventListener("click", () => {
+    loopt = false;
+    gepauzeerdOp = (performance.now() - begin) / 1000;
+    podium.classList.remove("speelt");
+    document.getElementById("start-tekst").textContent = "Verder kijken";
+    document.getElementById("start").hidden = false;
+  });
+
+  // Stilstaand beeld voor het afspelen: de titelkaart
+  teken(opname ? 0 : 3.2);
+</script>
+</body>
+</html>

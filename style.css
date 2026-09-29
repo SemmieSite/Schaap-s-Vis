@@ -2249,3 +2249,18 @@ body.bij-bestellen .bestel-balk {
     display: none;
   }
 }
+
+/* ---------- Uitlegvideo ---------- */
+
+.video-sectie .video-omslag {
+  padding: 0;
+  background: var(--kleur-donker);
+  border: none;
+  box-shadow: 0 12px 30px rgba(11, 37, 69, 0.18);
+}
+
+.video-link {
+  text-align: center;
+  margin: 1rem 0 0;
+  font-weight: 600;
+}
