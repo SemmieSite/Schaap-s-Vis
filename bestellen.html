@@ -99,7 +99,8 @@
 
           <p class="let-op">U betaalt pas bij de deur, als u uw vis heeft. Online betalen is niet nodig.</p>
 
-          <button type="submit" class="knop knop-primair knop-groot" style="margin-top:1.5rem;">Bestelling plaatsen</button>
+          <button type="submit" id="bestel-knop" class="knop knop-primair knop-groot" style="margin-top:1.5rem;" aria-describedby="minimum-melding">Bestelling plaatsen</button>
+          <p id="minimum-melding" class="let-op" style="display:none;">Minimale bestelling: €15. Vul nog wat producten aan.</p>
         </form>
       </div>
 
@@ -174,9 +175,17 @@
     });
     document.getElementById("overzicht-totaal-bedrag").textContent = formatPrijs(winkelwagenTotaalPrijs());
 
+    const bestelKnop = document.getElementById("bestel-knop");
+    const minimumMelding = document.getElementById("minimum-melding");
+    if (!voldoetAanMinimumBestelbedrag()) {
+      bestelKnop.disabled = true;
+      minimumMelding.style.display = "block";
+    }
+
     const form = document.getElementById("bestelformulier");
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      if (!voldoetAanMinimumBestelbedrag()) return;
       if (!form.checkValidity()) {
         form.reportValidity();
         return;

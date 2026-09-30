@@ -76,6 +76,13 @@ function winkelwagenTotaalPrijs() {
   return winkelwagenRegels().reduce((som, regel) => som + regel.subtotaal, 0);
 }
 
+const MINIMUM_BESTELBEDRAG = 15;
+
+function voldoetAanMinimumBestelbedrag() {
+  // Afronden op centen, zodat kommagetal-afwijkingen (14.999999...) niet meetellen.
+  return Math.round(winkelwagenTotaalPrijs() * 100) >= MINIMUM_BESTELBEDRAG * 100;
+}
+
 function werkWinkelwagenBadgeBij() {
   const badge = document.getElementById("cart-badge");
   if (!badge) return;

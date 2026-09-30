@@ -130,6 +130,7 @@
         <span>Totaal:</span>
         <span>${formatPrijs(winkelwagenTotaalPrijs())}</span>
       </div>
+      <p class="overzicht-klein">Minimale bestelling: ${formatPrijs(MINIMUM_BESTELBEDRAG)}.${voldoetAanMinimumBestelbedrag() ? "" : " Vul nog wat producten aan."}</p>
       <div class="winkelwagen-acties">
         <a href="index.html#aanbod" class="knop knop-secundair">Verder winkelen</a>
         <a href="index.html#bestellen" class="knop knop-primair knop-groot" style="width:auto;">Verder naar bestellen</a>
